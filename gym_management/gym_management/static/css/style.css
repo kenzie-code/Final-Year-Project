@@ -137,3 +137,7 @@ span{
     height: 80vh;
     width: 100%;
 }
+/* ==============services=============== */
+.services h5{
+    font-weight: 700;
+}
