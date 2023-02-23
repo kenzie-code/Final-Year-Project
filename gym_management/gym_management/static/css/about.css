@@ -32,85 +32,26 @@ span{
     font-family: 'Times New Roman', Times, serif;
 }
 .nav-link:hover{
-    color: blue;
+    color: Blue;
 }
 
-/* =================main section======================== */
+.fitness{
+    /* text-align: center; */
+    font-family: 'Courier New', Courier, monospace;
+    line-break: auto;
+    font-weight: 700;
+    align-content:center;
+} 
 .main{
-    background: url(https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat;
+    background: url(https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat;
     background-size: cover;
     height: 100vh;   
 }
-
-.main h1{
-    font-size: 5 rem;
-    font-weight: 300;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.btn{
-    height: 55px;
-    width: 140px;
-    color: white;
-    outline: none;
-    border: none;
-    background: linear-gradient(90deg, #ADD8E6 0%, #302930 100%);
-    transition: 1 sec;
-}
-.btn:hover{
-    background: linear-gradient(90deg, #302930 0%, #ADD8E6 100%);
-    transition: all 1s;
-}
-
-/* ===========================Details============================= */
-.details{
-    margin-top: -50px;   
-}
-.details h5{
-    font-weight: 700;
-    font-size: 1.5 rem;
-    
-}
-.details a{
-    text-decoration: none;
-    color:cornflowerblue;
-}
-.back:hover{
-    color: white;
-    cursor: pointer;
-
-}
-.back{
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    transition: all 0.8s;
-}
-.back::before{
-    content: "";
-    position: absolute;
-    height: 0px;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    background: linear-gradient(90deg, #302930 0%, #ADD8E6 100%);
-    z-index: -1;
-    transition: all 0.8s;
-}
-.back:hover::before{
-    height: 100%
-}
-.back:hover a{
-    color: white;
-    cursor: pointer;
-
-}
-#button {
-    font-weight: 500;
-    font-size: 14px;
-  
-    text-align: center;
-  
-    /* / Primary Color / */
+.caption{
+    /* text-align: center; */
+    line-break: auto;
+    font-weight: 200;
+    align-content:center;
 }
 #startnow{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -121,21 +62,26 @@ span{
     color:#302930;
     font-size: medium;
 }
-
-.text{
-    text-underline-position: none;
+.btn{
+    height: 55px;
+    width: 200px;
     color: white;
-
+    outline: none;
+    border: none;
+    background: linear-gradient(90deg, #ADD8E6 0%, #302930 100%);
+    transition: 1 sec;
 }
-.text:hover{
-    color:  #ADD8E6;
+.btn:hover{
+    background: linear-gradient(90deg, #302930 0%, #ADD8E6 100%);
+    transition: all 1s;
 }
-
-/* ====================Buy Workout========================= */
-.workout{
-    background: url(https://images.pexels.com/photos/241456/pexels-photo-241456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)no-repeat;
-    height: 80vh;
-    width: 100%;
+#button {
+    font-weight: 500;
+    font-size: 14px;
+  
+    text-align: center;
+  
+    /* / Primary Color / */
 }
 /* ==============services=============== */
 .services h5{
@@ -189,3 +135,4 @@ span{
 .kenzie{
     color:white;
 }
+
