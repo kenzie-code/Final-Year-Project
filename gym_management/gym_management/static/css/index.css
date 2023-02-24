@@ -37,7 +37,8 @@ span{
 
 /* =================main section======================== */
 .main{
-    background: url(https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat;
+    /* background: url(https://img.freepik.com/free-photo/portrait-young-spotive-girl-doing-exercises-with-rope-keeping-body-fit-isolated-green-background-neon_155003-45635.jpg?w=1060&t=st=1677166020~exp=1677166620~hmac=ba94f287f42844777169718ec79039f0368e9a29dddc409acc6dc2ca390d99ea) no-repeat; */
+    background: url(https://media.gettyimages.com/id/618981846/photo/boxing-her-way-to-a-ripper-body.jpg?s=2048x2048&w=gi&k=20&c=h7uqmCBMuVt3bybMSPNQ2tj2QGrex9R4zsPcGacTxQc=) no-repeat;
     background-size: cover;
     height: 100vh;   
 }
