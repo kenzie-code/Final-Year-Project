@@ -1,0 +1,111 @@
+{% include 'navbar.html' %}
+
+<section class="section py-5">
+  <div class="container py-5 text-white">
+    <div class="row py-3">
+      <div class="col-lg-10">
+        <h1
+          class="fitness text-primary text-uppercase lh-large text-bold mt-5 m-0"
+        >
+          CONTACT
+        </h1>
+        <p class="caption m-0 mt-3 lh-base">
+          BECOME THE FITTEST PERSON YOU KNOW
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ##### More section###### -->
+
+<section class="startnow pb-5 mt-5" id="startnow">
+  <div class="container container-start-now">
+    <div class="row">
+      <h3 class="text-center mt-5" id="tribe">HEY YOU</h3>
+      <p class="text-center mt-4" id="para">
+        You ask, we answer. You wish, we grant. Sounds like heaven, right? Below
+        you'll find our contact info: phone number, address and e-mail.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% comment %} Contact page started {% endcomment %}
+<div class="container mt-5">
+  <div class="row justify-content-evenly p-0">
+    <div class="col-md-11 col-lg-9 col-xxl-8">
+      <div class="row" id="box-shadow">
+        <div class="row">
+          <div class="col-12 mt-4" id="cap">
+            <p class="text-center text-primary text-bold">
+              How can we help you?
+            </p>
+          </div>
+        </div>
+
+        <!-- Bootstrap 5 starter form -->
+        <form id="contactForm">
+          <!-- Name input -->
+          <div class="mb-3">
+            <label class="form-label" for="name">Name</label>
+            <input
+              class="form-control"
+              id="name"
+              type="text"
+              placeholder="Name"
+              data-sb-validations="required"
+            />
+          </div>
+
+          <!-- Email address input -->
+          <div class="mb-3">
+            <label class="form-label" for="emailAddress">Email Address</label>
+            <input
+              class="form-control"
+              id="emailAddress"
+              type="email"
+              placeholder="Email Address"
+              data-sb-validations="required, email"
+            />
+          </div>
+
+          <!-- Message input -->
+          <div class="mb-3">
+            <label class="form-label" for="message">Message</label>
+            <textarea
+              class="form-control"
+              id="message"
+              type="text"
+              placeholder="Message"
+              style="height: 10rem"
+              data-sb-validations="required"
+            ></textarea>
+          </div>
+
+          {% comment %} Captcha {% endcomment %}
+
+          <div class="container">
+            <div
+              class="g-recaptcha"
+              data-sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ"
+            ></div>
+          </div>
+
+          <!-- Form submit button -->
+          <div class="col-12 mt-3 mb-5" id="btn">
+            <button
+              type="submit"
+              class="btn btn-outline-dark ps-4 pe-4"
+              id="submit"
+            >
+              SEND MESSAGE
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'footer.html' %}

@@ -136,3 +136,66 @@ span{
     color:white;
 }
 
+/* Equipment section */
+/* .equip{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+}
+#fitness{
+    font-family:'Montserrat, sans-serif';
+    color:#302930;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    color: inherit;
+    letter-spacing: 0;
+
+}
+#desc{
+    font-family:'Times New Roman', Times, serif;
+    color:#302930;
+    font-size: medium;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+#box-shadow{  
+    box-shadow: 0px 2px 2px 2px rgba(185, 185, 185, 0.25);
+} */
+
+/* Grid */
+.kNHaAI{
+    line-height: 20px;
+    font-family: FSHackney-regular, sans-serif;
+    font-size: 20px;
+    margin: 0px 0px 8px;
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: 6px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+h3{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.ilsOqB{
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0px;
+    font-family: FSHackney-regular, sans-serif;
+    letter-spacing: 1px;
+    color: rgb(152, 152, 152);
+}
+p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+

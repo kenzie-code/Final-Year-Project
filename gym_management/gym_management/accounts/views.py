@@ -1,11 +1,9 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.hashers import check_password,make_password
 from .models import *
+from django.contrib.auth import authenticate, login,logout
 # Create your views here.
 
-
-def home(request):
-    return render(request,'index.html')
 
 def signup(request):
     if request.POST :
@@ -28,22 +26,29 @@ def signup(request):
             return render(request,'Signup.html',{'message':'Something Went Wrong','status':'danger'})
     return render(request,'Signup.html',{'obj':'none'})
 
-def login(request):
+def userLogin(request):
     if request.POST :
         username = request.POST.get('username')
         password = (request.POST.get('password'))
         try :
             data = CustomUser.objects.get(username=username)
             if check_password(password,data.password):
+                
+                login(request,data)
                 return HttpResponse('Login Sucessful')
             else :
                 return render(request,'Login.html',{'message':'Incorrect Password','status':'warning'})
         except CustomUser.DoesNotExist:
             return render(request,'Login.html',{'message':'User is not here','status':'danger'})
-        except Exception:
+        except Exception as err:
+            print(str(err))
             return render(request,'Login.html',{'message':'Something Went Wrong','status':'danger'})
     return render(request,'Login.html')
         
+
+def userLogout(request):
+    logout(request)
+    return redirect("/")
 
 def admin_dashboard(request):
     return HttpResponse()

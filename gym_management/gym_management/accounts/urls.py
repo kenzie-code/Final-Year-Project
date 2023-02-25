@@ -5,11 +5,14 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('',home),
     path('signup/',signup),
-    path('login/',login),
+    path('login/',userLogin),
     path('admin_dashboard/',admin_dashboard),
     path('customer_dashboard/',customer_dashboard),
     path('trainer_dashboard/',trainer_dashboard),
+    path('logout/',userLogout),
 ]
-urlpatterns = urlpatterns +static(settings.STATIC_URL,document_root=settings.STATICFILES_DIRS)
+
+if settings.DEBUG:
+    urlpatterns = urlpatterns+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    urlpatterns = urlpatterns +static(settings.STATIC_URL,document_root=settings.STATICFILES_DIRS)
