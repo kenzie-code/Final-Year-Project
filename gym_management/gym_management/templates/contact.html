@@ -1,136 +1,76 @@
 {% include 'navbar.html' %}
 
-<section class="head pb-5">
-  <div class="container py-5">
-    <div class="card">
-      <div class="card-body">
-        <h1 class="font-weight-light text-center py-3">Contact Us</h1>
-        <div class="row">
-          <div class="col-lg-6-md-12 col-sm-12 col-12">
-            <div class="col-lg-1 offset-1 col-md-2 col-sm-2 col-2">
-
-            </div>
-            <div class="col-lg-10 col-md-9 col-sm-9 col-9">
-              <h3 class="font-weight-light"> Sweaty Athletic</h3>
-              <p>1639 W.Rosecrans Ave </br>
-                Gardena, CA 90249 </br>
-                Toll-free: 9856120280 </br>
-                Hours: Monday-Friday 8am-5pm 
-
-              </p>
-
-          </div>
-        </div>
-
-        <div class="row pt-3">
-          <div class="col-lg-6">
-            <div class="col-lg-1 offset-1 col-md-2 col-sm-2 col-2">
-
-            </div>
-            <div class="col-lg-10 col-md-9 col-sm-9 col-9">
-              <h3 class="font-weight-light"> Give us a ring</h3>
-              <p>Kenzie Magar  </br>
-                9848920293 </br>
-                Hours: Monday-Friday 8am-5pm 
-              </p>
-          </div>
-        </div>
-
-        <div class="row pt-3">
-          <div class="col-lg-6">
-            <div class="col-lg-1 offset-1 col-md-2 col-sm-2 col-2">
-
-            </div>
-            <div class="col-lg-10 col-md-9 col-sm-9 col-9">
-              <p>Sweaty Athletic is a well established & trusted business; </br>
-                 you can purchase exercise and used gym equipment from us online,</br>
-                  or call us, five days a week from 8:00 a.m. to 5:00 p.m. Pacific time. 
-              </p>
-          </div>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <h4>Get in touch</h4>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput"
+          placeholder="Enter your name"
+        />
       </div>
-
-      <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-        {% comment %} <form>
-          <div class="form-row">
-            <div class="form-group col-lg-6 col-md-12 col-sm-12 col-12">
-              <label>First Name</label>
-              <input type="text" class="form-control" placeholder="First Name">
-            </div>
-
-            <div class="form-group col-lg-6 col-md-12 col-sm-12 col-12">
-              <label>Last Name</label>
-              <input type="text" class="form-control" placeholder="Last Name">
-            </div>
-          </div>
-
-          <label>Email</label>
-          <input type="Email" class="form-control" placeholder="Email">
-
-          <label>Your Message</label>
-          <textarea class="formcontrol mb-3" placeholder="Message" id="" cols="30" rows="10"></textarea>
-        </form> {% endcomment %}
-
-        <form id="contactForm">
-          <!-- Name input -->
-          <div class="mb-3">
-            <label class="form-label" for="name">Name</label>
-            <input
-              class="form-control"
-              id="name"
-              type="text"
-              placeholder="Name"
-              data-sb-validations="required"
-            />
-          </div>
-
-          <!-- Email address input -->
-          <div class="mb-3">
-            <label class="form-label" for="emailAddress">Email Address</label>
-            <input
-              class="form-control"
-              id="emailAddress"
-              type="email"
-              placeholder="Email Address"
-              data-sb-validations="required, email"
-            />
-          </div>
-
-          <!-- Message input -->
-          <div class="mb-3">
-            <label class="form-label" for="message">Message</label>
-            <textarea
-              class="form-control"
-              id="message"
-              type="text"
-              placeholder="Message"
-              style="height: 10rem"
-              data-sb-validations="required"
-            ></textarea>
-          </div>
-
-          {% comment %} Captcha {% endcomment %}
-
-          <div class="container">
-            <div
-              class="g-recaptcha"
-              data-sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ"
-            ></div>
-          </div>
-
-          <!-- Form submit button -->
-          <div class="col-12 mt-3 mb-5" id="btn">
-            <button
-              type="submit"
-              class="btn btn-outline-dark ps-4 pe-4"
-              id="submit"
-            >
-              SEND MESSAGE
-            </button>
-          </div>
-        </form>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput2"
+          placeholder="Enter your email"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label"
+          >Contact Number</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput2"
+          placeholder="Enter your number"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"
+          >Message</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+        ></textarea>
+      </div>
+      <button class="btn btn-primary">Submit</button>
+    </div>
+    <div class="col-md-5">
+      <h4>Contact us</h4>
+      <hr />
+      <div class="mt-4">
+        <div class="d-flex">
+          <i class="bi bi-geo-alt-fill"></i>
+          <p>Address: 198 West 21th Street, Suite 721 New York NY 10016</p>
+        </div>
+        <hr />
+        <div class="d-flex">
+          <i class="bi bi-telephone-fill"></i>
+          <p>Contact :- 8888888888</p>
+        </div>
+        <hr />
+        <div class="d-flex">
+          <i class="bi bi-envelope-fill"></i>
+          <p>Email:- Contact@gmail.com</p>
+        </div>
+        <hr />
+        <div class="d-flex">
+          <i class="bi bi-browser-chrome"></i>
+          <p>Website: www.contact.com</p>
+        </div>
+        <hr />
       </div>
     </div>
-  <div>
-</section>
+  </div>
+</div>
 {% include 'footer.html' %}
