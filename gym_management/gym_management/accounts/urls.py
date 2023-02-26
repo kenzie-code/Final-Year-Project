@@ -7,10 +7,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('signup/',signup),
     path('login/',userLogin),
-    path('admin_dashboard/',admin_dashboard),
-    path('customer_dashboard/',customer_dashboard),
-    path('trainer_dashboard/',trainer_dashboard),
     path('logout/',userLogout),
+    path('admin_dashboard/',admin_dashboard),
+    path('trainer_dashboard/',trainer_dashboard),
 ]
 
 if settings.DEBUG:

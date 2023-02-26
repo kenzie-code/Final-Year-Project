@@ -1,50 +1,76 @@
 {% include 'navbar.html' %}
 
-<section class="section py-5">
-  <div class="container py-5 text-white">
-    <div class="row py-3">
-      <div class="col-lg-10">
-        <h1
-          class="fitness text-primary text-uppercase lh-large text-bold mt-5 m-0"
-        >
-          CONTACT
-        </h1>
-        <p class="caption m-0 mt-3 lh-base">
-          BECOME THE FITTEST PERSON YOU KNOW
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ##### More section###### -->
-
-<section class="startnow pb-5 mt-5" id="startnow">
-  <div class="container container-start-now">
-    <div class="row">
-      <h3 class="text-center mt-5" id="tribe">HEY YOU</h3>
-      <p class="text-center mt-4" id="para">
-        You ask, we answer. You wish, we grant. Sounds like heaven, right? Below
-        you'll find our contact info: phone number, address and e-mail.
-      </p>
-    </div>
-  </div>
-</section>
-
-{% comment %} Contact page started {% endcomment %}
-<div class="container mt-5">
-  <div class="row justify-content-evenly p-0">
-    <div class="col-md-11 col-lg-9 col-xxl-8">
-      <div class="row" id="box-shadow">
+<section class="head pb-5">
+  <div class="container py-5">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="font-weight-light text-center py-3">Contact Us</h1>
         <div class="row">
-          <div class="col-12 mt-4" id="cap">
-            <p class="text-center text-primary text-bold">
-              How can we help you?
-            </p>
+          <div class="col-lg-6-md-12 col-sm-12 col-12">
+            <div class="col-lg-1 offset-1 col-md-2 col-sm-2 col-2">
+
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-9 col-9">
+              <h3 class="font-weight-light"> Sweaty Athletic</h3>
+              <p>1639 W.Rosecrans Ave </br>
+                Gardena, CA 90249 </br>
+                Toll-free: 9856120280 </br>
+                Hours: Monday-Friday 8am-5pm 
+
+              </p>
+
           </div>
         </div>
 
-        <!-- Bootstrap 5 starter form -->
+        <div class="row pt-3">
+          <div class="col-lg-6">
+            <div class="col-lg-1 offset-1 col-md-2 col-sm-2 col-2">
+
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-9 col-9">
+              <h3 class="font-weight-light"> Give us a ring</h3>
+              <p>Kenzie Magar  </br>
+                9848920293 </br>
+                Hours: Monday-Friday 8am-5pm 
+              </p>
+          </div>
+        </div>
+
+        <div class="row pt-3">
+          <div class="col-lg-6">
+            <div class="col-lg-1 offset-1 col-md-2 col-sm-2 col-2">
+
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-9 col-9">
+              <p>Sweaty Athletic is a well established & trusted business; </br>
+                 you can purchase exercise and used gym equipment from us online,</br>
+                  or call us, five days a week from 8:00 a.m. to 5:00 p.m. Pacific time. 
+              </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+        {% comment %} <form>
+          <div class="form-row">
+            <div class="form-group col-lg-6 col-md-12 col-sm-12 col-12">
+              <label>First Name</label>
+              <input type="text" class="form-control" placeholder="First Name">
+            </div>
+
+            <div class="form-group col-lg-6 col-md-12 col-sm-12 col-12">
+              <label>Last Name</label>
+              <input type="text" class="form-control" placeholder="Last Name">
+            </div>
+          </div>
+
+          <label>Email</label>
+          <input type="Email" class="form-control" placeholder="Email">
+
+          <label>Your Message</label>
+          <textarea class="formcontrol mb-3" placeholder="Message" id="" cols="30" rows="10"></textarea>
+        </form> {% endcomment %}
+
         <form id="contactForm">
           <!-- Name input -->
           <div class="mb-3">
@@ -105,7 +131,6 @@
         </form>
       </div>
     </div>
-  </div>
-</div>
-
+  <div>
+</section>
 {% include 'footer.html' %}

@@ -1,0 +1,132 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    background: black;
+    color: white;
+
+}
+.navbar-brand{
+    color: white;
+    font-family: 'Dancing Script', cursive;
+}
+.navbar-brand:hover{
+    color: white;
+    
+}
+
+span{
+    color: Blue;
+    cursor: pointer;
+    font-size: larger;
+}
+.nav-item{
+    padding-right: 30px;
+}
+.nav-link{
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+}
+.nav-link:hover{
+    color: Blue;
+}
+
+/* =================main section======================== */
+.main{
+    background: url(https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat;
+    background-size: cover;
+    height: 100vh;   
+}
+
+.main h1{
+    font-size: 5 rem;
+    font-weight: 300;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn{
+    height: 55px;
+    width: 140px;
+    color: white;
+    outline: none;
+    border: none;
+    background: linear-gradient(90deg, #ADD8E6 0%, #302930 100%);
+    transition: 1 sec;
+}
+.btn:hover{
+    background: linear-gradient(90deg, #302930 0%, #ADD8E6 100%);
+    transition: all 1s;
+}
+
+/* ===========================Details============================= */
+.details{
+    margin-top: -50px;   
+}
+.details h5{
+    font-weight: 700;
+    font-size: 1.5 rem;
+    
+}
+.details a{
+    text-decoration: none;
+    color:cornflowerblue;
+}
+.back:hover{
+    color: white;
+    cursor: pointer;
+
+}
+.back{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.8s;
+}
+.back::before{
+    content: "";
+    position: absolute;
+    height: 0px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(90deg, #302930 0%, #ADD8E6 100%);
+    z-index: -1;
+    transition: all 0.8s;
+}
+.back:hover::before{
+    height: 100%
+}
+.back:hover a{
+    color: white;
+    cursor: pointer;
+
+}
+#button {
+    font-weight: 500;
+    font-size: 14px;
+  
+    text-align: center;
+  
+    /* / Primary Color / */
+}
+#startnow{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+}
+#para{
+    font-family:'Times New Roman', Times, serif;
+    color:#302930;
+    font-size: medium;
+}
+
+.text{
+    text-underline-position: none;
+    color: white;
+
+}
+.text:hover{
+    color:  #ADD8E6;
+}

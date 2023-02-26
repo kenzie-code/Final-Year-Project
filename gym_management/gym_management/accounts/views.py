@@ -33,9 +33,13 @@ def userLogin(request):
         try :
             data = CustomUser.objects.get(username=username)
             if check_password(password,data.password):
-                
                 login(request,data)
-                return HttpResponse('Login Sucessful')
+                if data.user_type == 'Admin':
+                    return redirect('/admin_dashboard/')
+                elif data.user_type == 'Customer':
+                    return redirect('/customer_dashboard/')
+                else :
+                    return redirect('/trainer_dashboard/')
             else :
                 return render(request,'Login.html',{'message':'Incorrect Password','status':'warning'})
         except CustomUser.DoesNotExist:
@@ -45,16 +49,14 @@ def userLogin(request):
             return render(request,'Login.html',{'message':'Something Went Wrong','status':'danger'})
     return render(request,'Login.html')
         
-
 def userLogout(request):
     logout(request)
-    return redirect("/")
+    return redirect('/')
+
 
 def admin_dashboard(request):
-    return HttpResponse()
+    return HttpResponse('Admin')
 
-def customer_dashboard(request):
-    return HttpResponse('customer_dashboard')
 
 def trainer_dashboard(request):
     return HttpResponse('trainer_dashboard')

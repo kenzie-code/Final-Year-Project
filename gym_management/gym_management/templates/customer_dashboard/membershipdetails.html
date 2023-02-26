@@ -1,0 +1,72 @@
+{% include 'customer_dashboard/upper.html' %}
+
+<style>
+    .btn1{
+      background: #282828 ;
+      color: white;
+    }
+    .btn2{
+        background: #fff;
+        color: #282828;
+        border: 1px solid #282828;
+    }
+    .btn1:hover{
+      background: #414141 ;
+      color: white;
+    }
+    .btn2:hover{
+        background: #fff;
+        color: #414141;
+        border: 1px solid #414141;
+    }
+</style>
+
+<div class="app-wrapper">
+	    
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">			    
+            <h1 class="app-page-title">Membership details</h1>
+
+            <hr class="my-4">
+            <div class="row g-4 settings-section">
+                <div class="col-12 col-md-4">
+                    <h3 class="section-title">Plan</h3>
+                    <div class="section-intro">Settings section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="help.html">Learn more</a></div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div class="app-card app-card-settings shadow-sm p-4">
+                        
+                        <div class="app-card-body">
+                            <div class="mb-2"><strong>Current Plan:</strong> Pro</div>
+                            <div class="mb-2"><strong>Status:</strong> <span class="badge bg-success">Active</span></div>
+                            <div class="mb-2"><strong>Expires:</strong> 2030-09-24</div>
+                            <div class="mb-4"><strong>Invoices:</strong> <a href="#">view</a></div>
+                            <div class="row justify-content-between">
+                                <div class="col-auto">
+                                    <a class="btn app-btn-primary btn1" href="#">Upgrade Plan</a>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="btn app-btn-secondary btn2" href="#">Cancel Plan</a>
+                                </div>
+                            </div>
+                                
+                        </div><!--//app-card-body-->
+                        
+                    </div><!--//app-card-->
+                </div>
+            </div><!--//row-->
+        </div><!--//container-fluid-->
+    </div><!--//app-content-->
+    
+</div><!--//app-wrapper-->    					
+
+
+<!-- Javascript -->          
+<script src="/static/customer_dashboard/plugins/popper.min.js"></script>
+<script src="/static/customer_dashboard/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+<!-- Page Specific JS -->
+<script src="/static/customer_dashboard/js/app.js"></script> 
+
+</body>
+</html> 

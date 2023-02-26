@@ -1,6 +1,6 @@
 /* Contact page */
 
-.section{
+/* .section{
     background: url(https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat;
     background-size: cover;
     height: 100vh;   
@@ -36,4 +36,15 @@
     box-sizing: border-box;
     font-size: larger;
     
+} */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.head{
+    /* background: url(https://images.pexels.com/photos/4397840/pexels-photo-4397840.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat; */
+    background-size: 100% 100%;
+    width: 100%
 }

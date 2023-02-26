@@ -1,0 +1,192 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    background: black;
+    color: white;
+
+}
+.navbar-brand{
+    color: white;
+    font-family: 'Dancing Script', cursive;
+}
+.navbar-brand:hover{
+    color: white;
+    
+}
+
+span{
+    color: Blue;
+    cursor: pointer;
+    font-size: larger;
+}
+.nav-item{
+    padding-right: 30px;
+}
+.nav-link{
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+}
+.nav-link:hover{
+    color: blue;
+}
+
+/* =================main section======================== */
+.main{
+    /* background: url(https://img.freepik.com/free-photo/portrait-young-spotive-girl-doing-exercises-with-rope-keeping-body-fit-isolated-green-background-neon_155003-45635.jpg?w=1060&t=st=1677166020~exp=1677166620~hmac=ba94f287f42844777169718ec79039f0368e9a29dddc409acc6dc2ca390d99ea) no-repeat; */
+    background: url(https://media.gettyimages.com/id/618981846/photo/boxing-her-way-to-a-ripper-body.jpg?s=2048x2048&w=gi&k=20&c=h7uqmCBMuVt3bybMSPNQ2tj2QGrex9R4zsPcGacTxQc=) no-repeat;
+    background-size: cover;
+    height: 100vh;   
+}
+
+.main h1{
+    font-size: 5 rem;
+    font-weight: 300;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn{
+    height: 55px;
+    width: 140px;
+    color: white;
+    outline: none;
+    border: none;
+    background: linear-gradient(90deg, #ADD8E6 0%, #302930 100%);
+    transition: 1 sec;
+}
+.btn:hover{
+    background: linear-gradient(90deg, #302930 0%, #ADD8E6 100%);
+    transition: all 1s;
+}
+
+/* ===========================Details============================= */
+.details{
+    margin-top: -50px;   
+}
+.details h5{
+    font-weight: 700;
+    font-size: 1.5 rem;
+    
+}
+.details a{
+    text-decoration: none;
+    color:cornflowerblue;
+}
+.back:hover{
+    color: white;
+    cursor: pointer;
+
+}
+.back{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.8s;
+}
+.back::before{
+    content: "";
+    position: absolute;
+    height: 0px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(90deg, #302930 0%, #ADD8E6 100%);
+    z-index: -1;
+    transition: all 0.8s;
+}
+.back:hover::before{
+    height: 100%
+}
+.back:hover a{
+    color: white;
+    cursor: pointer;
+
+}
+#button {
+    font-weight: 500;
+    font-size: 14px;
+  
+    text-align: center;
+  
+    /* / Primary Color / */
+}
+#startnow{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+}
+#para{
+    font-family:'Times New Roman', Times, serif;
+    color:#302930;
+    font-size: medium;
+}
+
+.text{
+    text-underline-position: none;
+    color: white;
+
+}
+.text:hover{
+    color:  #ADD8E6;
+}
+
+/* ====================Buy Workout========================= */
+.workout{
+    background: url(https://images.pexels.com/photos/241456/pexels-photo-241456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)no-repeat;
+    height: 80vh;
+    width: 100%;
+}
+/* ==============services=============== */
+.services h5{
+    font-weight: 700;
+}
+
+/* Footer  */
+
+.footer{
+    background-color: black;
+    color: white;
+
+}
+.footer h4 {
+    font-size: 1.5 rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+.footer p{
+    margin: 0;
+    color: white;
+}
+.link{
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.link:hover{
+    color:rgb(28, 139, 173);
+    padding-left: 5px;
+    transition: all 0.5s;
+}
+.fa-angle-double-right{
+    font-size: 18px;
+    color: white;
+}
+.social{
+    color: white;
+    font-size: 24px;
+    transition: all 0.4s;
+}
+.social:hover{
+    color:rgb(28, 139, 173);
+    transition: all 0.4s;
+    cursor: pointer;
+}
+.footer .card{
+    background:rgb(215, 220, 226);
+    border-radius: 0;
+    margin-top: 50px;
+    
+}
+.kenzie{
+    color:white;
+}
