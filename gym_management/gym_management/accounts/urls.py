@@ -8,7 +8,6 @@ urlpatterns = [
     path('signup/',signup),
     path('login/',userLogin),
     path('logout/',userLogout),
-    path('admin_dashboard/',admin_dashboard),
     path('trainer_dashboard/',trainer_dashboard),
 ]
 

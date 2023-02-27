@@ -1,0 +1,134 @@
+{% include 'admin_dashboard/upper.html' %}
+
+<style>
+  .btn1{
+    background: #282828 ;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .btn2{
+    background: white;
+    color: #282828 ;
+  }
+  .btn1:hover{
+    background: #414141 ;
+    color: white;
+    
+  }
+  .btn2:hover{
+    background: #282828 ;
+    color: white;
+  }
+  .card{
+        border: 5px solid white;
+        border-radius: 15px;
+        color: white;
+        background:#282828 ;
+    }
+    .head{
+        font-size: 2.5rem;
+    }
+
+    .form-input1 input,textarea{
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        width: 29rem;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #282828 ;
+
+    }
+    .signup{
+        background-color: #414141;
+        color: white;
+    }
+    .signup:hover{
+        background-color: white;
+        color: #282828;
+    }
+</style>
+
+<div class="app-wrapper">
+	    
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+            
+            <div class="position-relative mb-3">
+                <div class="row g-3 justify-content-between">
+                    <div class="col-auto">
+                        <h1 class="app-page-title mb-0">Add Product</h1>
+                    </div>
+                    <div class="col-auto">
+                        <div class=" page-utilities sbtn">
+                            <a href="/appadmin/Products/add"><button class="btn1">Add Products</button></a>
+                        </div><!--//page-utilities-->
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-5 mb-5">
+
+                <div class="row d-flex align-items-center justify-content-center">
+    
+                  <div class="col-md-6">
+    
+    
+                    <div class="card px-5 py-5">
+    
+                      <h5 class=" text-white head">Add Products</h5>
+                      
+                      <hr>
+
+                      <div class="form-input1">
+                        <input type="text" class="form-control1" placeholder="Product Name">
+                      </div>
+    
+                      <div class="form-input1">
+                        <input type="text" class="form-control1" placeholder="Selling Price">           
+                      </div>
+    
+    
+                      <div class="form-input1">
+                        <input type="text" class="form-control1" placeholder="Discount Price">
+                      </div>
+
+                      <div class="form-input1">
+                        <textarea cols="30" rows="1" placeholder="Product Description"></textarea>
+                      </div>
+
+                      <div class="form-input1">
+                        <input type="text" class="form-control1" placeholder="Product Type">
+                      </div>
+
+                      <div class="form-input1">
+                        <label>Product Image : </label>
+                        <input type="file" class="form-control1" placeholder="Product Image">
+                      </div>
+    
+    
+                      <button class="btn btn-primary mt-4 signup">Add</button>
+                    </div>
+    
+    
+                    
+                  </div>
+                  
+                </div>
+                
+              </div>
+        </div>
+        
+    </div>
+</div> 
+
+
+    <!-- Javascript -->          
+    <script src="/static/customer_dashboard/plugins/popper.min.js"></script>
+    <script src="/static/customer_dashboard/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    <!-- Page Specific JS -->
+    <script src="/static/customer_dashboard/js/app.js"></script> 
+
+</body>
+</html> 
