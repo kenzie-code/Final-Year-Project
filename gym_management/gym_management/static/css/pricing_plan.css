@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    background: black;
+    color: white;
+
+}
+.navbar-brand{
+    color: white;
+    font-family: 'Dancing Script', cursive;
+}
+.navbar-brand:hover{
+    color: white;
+    
+}
+
+span{
+    color: Blue;
+    cursor: pointer;
+    font-size: larger;
+}
+.nav-item{
+    padding-right: 30px;
+}
+.nav-link{
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+}
+.nav-link:hover{
+    color: blue;
+}
+
+/* =================main section======================== */
+.main{
+    background: url(https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat;
+    background-size: cover;
+    height: 100vh;   
+}
+
+.main h1{
+    font-size: 5 rem;
+    font-weight: 300;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.tribe{
+    /* text-align: center; */
+    line-break: auto;
+    font-weight: 200;
+    align-content:center;
+}
+#startnow{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+}
+#para{
+    font-family:'Times New Roman', Times, serif;
+    color:#302930;
+    font-size: 30px;
+}
+#btn {
+    text-align: center;
+    box-sizing: border-box;
+    align-items: center;
+  }
+
+#btn1 {
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+}
+/* ====================Buy Workout========================= */
+.workout{
+    background: url(https://images.pexels.com/photos/241456/pexels-photo-241456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)no-repeat;
+    height: 80vh;
+    width: 100%;
+}
+/* ==============services=============== */
+.services h5{
+    font-weight: 700;
+}
+.personal{
+    background: url(https://images.unsplash.com/photo-1518310952931-b1de897abd40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)no-repeat;
+    height: 80vh;
+    width: 100%;
+
+}
