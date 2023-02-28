@@ -8,9 +8,10 @@ from accounts.models import *
 def home_dash(request):
     cu = CustomUser.objects.filter(user_type='Customer')
     cut = CustomUser.objects.filter(user_type='Trainer')
+    prize = Customer_Details.objects.all().order_by('-id')[:4]
     member = len(cu)
     trainer = len(cut)
-    return render(request,'admin_dashboard/account.html',{'act':'active','member':member,'trainer':trainer})
+    return render(request,'admin_dashboard/account.html',{'act':'active','member':member,'trainer':trainer,'prize':prize})
 
 @login_required(login_url='/login/')
 def editpassword(request):
@@ -28,7 +29,8 @@ def editpassword(request):
 
 @login_required(login_url='/login/')
 def trainer_details(request):
-    return render(request,'admin_dashboard/trainer_details.html',{'act1':'active'})
+    trainer = Trainer_Details.objects.all()
+    return render(request,'admin_dashboard/trainer_details.html',{'act1':'active','trainers':trainer})
 
 @login_required(login_url='/login/')
 def edit_trainer(request):
@@ -44,7 +46,8 @@ def job_request(request):
 
 @login_required(login_url='/login/')
 def Members_details(request):
-    return render(request,'admin_dashboard/membersdetails.html',{'act2':'active'})
+    members = Customer_Details.objects.all()
+    return render(request,'admin_dashboard/membersdetails.html',{'act2':'active','members':members})
 
 @login_required(login_url='/login/')
 def edit_member(request):
@@ -76,3 +79,16 @@ def add_product(request):
 @login_required(login_url='/login/')
 def payment(request):
     return render(request,'admin_dashboard/payment.html',{'act5':'active'})
+
+
+@login_required(login_url='/login/')
+def edit_image(request):
+    user = request.user
+    profile = CustomUser.objects.get(username=user)
+    if request.POST:
+        image = request.FILES.get('image')
+        profile.profile_image = image
+        profile.save()
+        return render(request,'admin_dashboard/editimage.html',{'act':'active','profile':profile,'status':'primary','message':'Profile Image Saved Sucessfully'})
+    return render(request,'admin_dashboard/editimage.html',{'act':'active','profile':profile,'obj':'none'})
+

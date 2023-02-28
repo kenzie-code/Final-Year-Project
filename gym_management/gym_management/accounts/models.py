@@ -17,6 +17,7 @@ class CustomUser(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
+    profile_image = models.ImageField(upload_to='media/profile_image/',null=True,blank=True,verbose_name='Profile Image')
 
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = ['user_type']
@@ -53,6 +54,9 @@ class Trainer_Details(models.Model):
     Experience = models.IntegerField(null=True,verbose_name="Experience")
     Salary = models.FloatField(null=True,blank=True)
     Customer = models.ManyToManyField(Customer_Details,blank=True,related_name='Customer')
+    facebook = models.URLField(verbose_name='facebook',blank=True,null=True)
+    twitter = models.URLField(verbose_name='Twitter',blank=True,null=True)
+    instagram = models.URLField(verbose_name='Instagram',blank=True,null=True)
     def __str__(self):
         return self.Name
 

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from appadmin.models import *
 # Create your views here.
 from django.shortcuts import render
 
@@ -17,9 +18,11 @@ def about(request):
     return render(request,"about.html",{'info':info,'Social':Social})
 
 def pricing(request):
+    plan = Package.objects.all().exclude(Type__Name='Workout')
+    workout = Package.objects.filter(Type__Name='Workout')
     info = Information.objects.latest('business_address')
     Social = social_info.objects.all()
-    return render(request,"pricing_plan.html",{'info':info,'Social':Social})
+    return render(request,"pricing_plan.html",{'plan':plan,'workout':workout,'info':info,'Social':Social})
 
 def concept(request):
     info = Information.objects.latest('business_address')
@@ -30,6 +33,12 @@ def contact(request):
     info = Information.objects.latest('business_address')
     Social = social_info.objects.all()
     return render(request,"contact.html",{'info':info,'Social':Social})
+
+def gold(request):
+    info = Information.objects.latest('business_address')
+    Social = social_info.objects.all()
+    return render(request, "gold_member.html", {'info':info,'Social':Social})
+
 
 
 

@@ -43,6 +43,18 @@ def edit_password(request):
         return render(request,'customer_dashboard/editpassword.html',{'act1':'active','profile':profile,'status':'warning','message':'Password Mismatched'})
     return render(request,'customer_dashboard/editpassword.html',{'act1':'active','profile':profile,'obj':'none'})
 
+@login_required(login_url='/login/')
+def edit_image(request):
+    user = request.user
+    profile = CustomUser.objects.get(username=user)
+    if request.POST:
+        image = request.FILES.get('image')
+        profile.profile_image = image
+        profile.save()
+        return render(request,'customer_dashboard/editimage.html',{'act1':'active','profile':profile,'status':'primary','message':'Profile Image Saved Sucessfully'})
+    return render(request,'customer_dashboard/editimage.html',{'act1':'active','profile':profile,'obj':'none'})
+
+
 
 def Membership_details(request):
     return render(request,'customer_dashboard/membershipdetails.html',{'act2':'active'})

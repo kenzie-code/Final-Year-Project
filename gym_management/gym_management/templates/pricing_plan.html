@@ -2,8 +2,28 @@
 {% include 'navbar.html' %}
 <link rel="stylesheet" href="{% static 'css/pricing.css' %}" />
 
+<style>
+  .personal{
+      background: url(https://images.unsplash.com/photo-1518310952931-b1de897abd40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)no-repeat;
+      height: 80vh;
+      width: 100%;
+  }
+  .main{
+    background: url(https://th.bing.com/th/id/R.eaf5ec608c73e6dfd749ccc5aad64377?rik=%2bZUOPe97BgAh3w&pid=ImgRaw&r=0) no-repeat;
+    background-size: cover;
+    height: 100vh;  
+  }
+  .workout{
+    background: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/focused-determined-powerful-strong-fitness-workout-royalty-free-image-617602018-1560881474.jpg?resize=980:*)no-repeat;
+    height: 80vh;
+    width: 200%%;
+}
 
-<main>
+
+</style>
+
+
+<main class="mb-5">
     <section class="main py-5">
         <div class="container py-5 text-white">
           <div class="row py-3">
@@ -39,91 +59,63 @@
   </section>
 
   <div class="row">
+    {% for i in plan %}
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title text-center">GOLD 1 YEAR</h5>
-          <p class="card-text text-center">Rs 9852.68,- </br>
+          <h5 class="card-title text-center">{{i.Name}}</h5>
+          <p class="card-text text-center">Rs {{i.Price}},- </br>
             per 4 weeks
           </p>
           <p class="text-center" id="para">
-            .Unlimited workouts </br>
-            .Freeze your membership for up to 28 days </br>
-            .1 intro PT session</br>
+            {{i.Description}}</br>
           </p>
 
           <div class="col-12 mb-5" id="btn">
-            <button
-              type="submit"
-              class="btn ps-2 pe-2"
-              id="btn1"
-            >
-              BUY NOW
-            </button>
+            {% if request.user.is_authenticated %}
+                {% if request.user.user_type == 'Customer' %}
+                    <a
+                    href="/"
+                    class="btn ps-2 pe-2"
+                    id="btn1"
+                    >
+                    BUY NOW
+                    </a>
+                {% elif request.user.user_type == 'Admin' %}
+                    <a
+                    href="#"
+                    class="btn ps-2 pe-2"
+                    id="btn1"
+                    >
+                    Admin
+                    </a>
+                {% else %}
+                    <a
+                    href="#"
+                    class="btn ps-2 pe-2"
+                    id="btn1"
+                    >
+                    Trainer
+                    </a>
+                {% endif %}
+            {% else %}
+                <a
+                href="/login/"
+                class="btn ps-2 pe-2"
+                id="btn1"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+                  </svg>BUY NOW
+                </a>
+            {% endif %}
 
-            <p class="text-center mt-1">12 month commitment period. After 11 months,</br>
-                you can cancel anytime with a 4-week cancellation period.</p>
+            <p class="text-center mt-1">{{i.Message}}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title text-center">GOLD FLEX</h5>
-              <p class="card-text text-center">Rs 15000,- </br>
-                per 4 weeks
-              </p>
-              <p class="text-center" id="para">
-                .Unlimited workouts </br>
-                .Unlimited freeze options </br>
-                .1 intro PT session</br>
-              </p>
-    
-              <div class="col-12  mb-5" id="btn">
-                <button
-                  type="submit"
-                  class="btn ps-2 pe-2"
-                  id="btn1"
-                >
-                  BUY NOW
-                </button>
-
-                <p class="text-center mt-1">12 month commitment period. After 11 months,</br>
-                    you can cancel anytime with a 4-week cancellation period.</p>
-              </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-4">
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title text-center">GOLD FLEX</h5>
-              <p class="card-text text-center">Rs 15000,- </br>
-                per 4 weeks
-              </p>
-              <p class="text-center" id="para">
-                .Unlimited workouts </br>
-                .Unlimited freeze options </br>
-                .1 intro PT session</br>
-              </p>
-    
-              <div class="col-12  mb-5" id="btn">
-                <button
-                  type="submit"
-                  class="btn ps-2 pe-2"
-                  id="btn1"
-                >
-                  BUY NOW
-                </button>
-
-                <p class="text-center mt-1">12 month commitment period. After 11 months,</br>
-                    you can cancel anytime with a 4-week cancellation period.</p>
-              </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
   </div>
 
   <section class="startnow pb-5 mt-5" id="startnow">
@@ -146,10 +138,43 @@
         <div class="col-lg-8">
           <h3>TWO WORKOUTS (FIRST TIMER)</h3>
           <p> Valid for 14 days</p>
-
-          <a class="btn btn-primary btn-lg btn-block mt-4" id="joinbtn" href="">
-            BUY NOW
+          {% if request.user.is_authenticated %}
+          {% if request.user.user_type == 'Customer' %}
+              <a
+              href="/"
+              class="btn btn-primary btn-lg btn-block mt-4"
+              id="joinbtn"
+              >
+              BUY NOW
+              </a>
+          {% elif request.user.user_type == 'Admin' %}
+              <a
+              href="#"
+              class="btn btn-primary btn-lg btn-block mt-4"
+              id="joinbtn"
+              >
+              Admin
+              </a>
+          {% else %}
+              <a
+              href="#"
+              class="btn btn-primary btn-lg btn-block mt-4"
+              id="joinbtn"
+              >
+              Trainer
+              </a>
+          {% endif %}
+      {% else %}
+          <a
+          href="/login/"
+          class="btn btn-primary btn-lg btn-block mt-4"
+          id="joinbtn"
+          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+              <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+            </svg>BUY NOW
           </a>
+      {% endif %}
         </div>
       </div>
     </div>
@@ -157,97 +182,62 @@
 
     <section class= "services pb-5">
         <div class="row pt-5">
-        <div class="col-lg-3">
-            <div class="card back border-0 p-4">
-            <div class="card-body">
-                <h5 class="py-3 text-bold">1 WORKOUT</h5>
-                <p>Rs 1655.91,-</br>
-                    Per Workout</br>
-                    Rs 1655.91,- in total
-                </p>
-                <div class="col-12 mb-5" id="btn">
-                    <button
-                    type="submit"
-                    class="btn ps-2 pe-2"
-                    id="btn1"
-                    >
-                    BUY NOW
-                    </button>
-        
-                    <p class="mt-1">Valid for 12 months</p>
-                </div>
-            </div>
-            </div>
-        </div>
 
+        {% for i in workout %}
         <div class="col-lg-3">
             <div class="card back border-0 p-4">
             <div class="card-body">
-                <h5 class="py-3 text-bold">5 WORKOUTS</h5>
+                <h5 class="py-3 text-bold">{{i.Name}}</h5>
                 <p>Rs 1655.91,-</br>
                     Per Workout</br>
-                    Rs 1655.91,- in total
+                    Rs {{i.Price}},- in total
                 </p>
                 <div class="col-12 mb-5" id="btn">
-                    <button
-                    type="submit"
+                    {% if request.user.is_authenticated %}
+                {% if request.user.user_type == 'Customer' %}
+                    <a
+                    href="/"
                     class="btn ps-2 pe-2"
                     id="btn1"
                     >
                     BUY NOW
-                    </button>
+                    </a>
+                {% elif request.user.user_type == 'Admin' %}
+                    <a
+                    href="#"
+                    class="btn ps-2 pe-2"
+                    id="btn1"
+                    >
+                    Admin
+                    </a>
+                {% else %}
+                    <a
+                    href="#"
+                    class="btn ps-2 pe-2"
+                    id="btn1"
+                    >
+                    Trainer
+                    </a>
+                {% endif %}
+            {% else %}
+                <a
+                href="/login/"
+                class="btn ps-2 pe-2"
+                id="btn1"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+                  </svg>BUY NOW
+                </a>
+            {% endif %}
         
-                    <p class="mt-1">Valid for 12 months</p>
+                    <p class="mt-1">Valid for {{i.Duration}} months</p>
                 </div>
             </div>
             </div>
         </div>
+        {% endfor %}
 
-        <div class="col-lg-3">
-            <div class="card back border-0 p-4">
-            <div class="card-body">
-                <h5 class="py-3 text-bold">10 WORKOUTS</h5>
-                <p>Rs 1655.91,-</br>
-                    Per Workout</br>
-                    Rs 1655.91,- in total
-                </p>
-                <div class="col-12 mb-5" id="btn">
-                    <button
-                    type="submit"
-                    class="btn ps-2 pe-2"
-                    id="btn1"
-                    >
-                    BUY NOW
-                    </button>
-        
-                    <p class="mt-1">Valid for 12 months</p>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3">
-            <div class="card back border-0 p-4">
-            <div class="card-body">
-                <h5 class="py-3 text-bold">20 WORKOUTS</h5>
-                <p>Rs 1655.91,-</br>
-                    Per Workout</br>
-                    Rs 1655.91,- in total
-                </p>
-                <div class="col-12 mb-5" id="btn">
-                    <button
-                    type="submit"
-                    class="btn ps-2 pe-2"
-                    id="btn1"
-                    >
-                    BUY NOW
-                    </button>
-        
-                    <p class="mt-1">Valid for 12 months</p>
-                </div>
-            </div>
-            </div>
-        </div>
         </div>
     
     </section>
@@ -270,7 +260,6 @@
             <div class="col-lg-8">
               <h3>PERSONAL TRAINING</h3>
               <p>No matter your goal, we'll get you there!</p>
-    
               <a class="btn btn-lg btn-block mt-4" id="joinbtn" href="">
                 READ MORE
               </a>
@@ -281,7 +270,6 @@
 
 
 </main>
-
 
 
 {% include 'footer.html' %}
