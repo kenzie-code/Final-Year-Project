@@ -39,6 +39,12 @@ def gold(request):
     Social = social_info.objects.all()
     return render(request, "gold_member.html", {'info':info,'Social':Social})
 
+def review(request):
+    info = Information.objects.latest('business_address')
+    Social = social_info.objects.all()
+    return render(request, "review.html", {'info':info,'Social':Social})
+
+
 
 
 

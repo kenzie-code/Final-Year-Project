@@ -1,0 +1,126 @@
+{% load static %} {% comment %} {% include 'navbar.html' %} {% endcomment %}
+<link rel="stylesheet" href="{% static 'css/review.css' %}" />
+
+<div class="container">
+  <div class="board">
+    <h2 class="text-light">Word from our customers</h2>
+    <p class="text-light">Some of the fullfilled customers reviews</p>
+
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="flex">
+            <div class="comments">
+              Sweaty Athletic has been awesome to me. Their trainers are
+              exceptional, the overall vibe is great and I had nothing but good
+              experiences. I defenitely recommend them to my friends and family.
+            </div>
+            <div class="profile">
+              <img src="{% static 'images/ken.png' %}" alt="" />
+              <a href="#">Kenzie</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="flex">
+            <div class="comments">
+              The workouts are fun, the fellow members are inspiring, the
+              workouts are led by personal trainers who give hands on instant
+              feedback and adjustments during the workouts and just the right
+              amount of encouragement. The music is blaring and the atmosphere
+              is awesome. You will not do the same workout twice and if you go
+              you will see the results no question. It’s a life changing gym
+              experience and I recommend it highly to all my fiends and family.
+            </div>
+            <div class="profile">
+              <img src="{% static 'images/owen.png' %}" alt="" />
+              <a href="#">Owen</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="flex">
+            <div class="comments">
+              Hands down, best choice I’ve made training at sweaty athletic.
+              VERY friendly team who make me actually want to go train. I look
+              forward to walking through the doors and always feel amazing when
+              I leave.
+            </div>
+            <div class="profile">
+              <img src="{% static 'images/puza.png' %}" alt="" />
+              <a href="#">Puza</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="flex">
+            <div class="comments">
+              This is a fantastic gym!! All the trainers are super nice and take
+              an interest in you no matter what fitness level you’re at. I
+              really like how they give me tips and tricks to get the most out
+              of every workout. I’ve been going for a little bit and am already
+              seeing a big change in my energy levels and body. It’s great! I
+              feel 10 years younger!
+            </div>
+            <div class="profile">
+              <img src="{% static 'images/abi.png' %}" alt="" />
+              <a href="#">Abigyan</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="flex">
+            <div class="comments">
+              By far the best facility around. This new location is mint from
+              the staff, to the equipment, to the facility itself. From the
+              ownership, to management, to the trainers, by far the nicest and
+              most knowledgeable staff in the business today. I wouldn’t
+              hesitate to recommend sweaty atheletic to anyone. I am certainly
+              satisfied thus far and have been blown away by my experience at
+              this new facility
+            </div>
+            <div class="profile">
+              <img src="{% static 'images/nisha.png' %}" alt="" />
+              <a href="#">Nisha</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="flex">
+            <div class="comments">
+              AMAZING GYM, AMAZING WORKOUTS! The staff here is incredibly
+              friendly and extremely qualified! They know how to push you to the
+              limit in the best way possible with your workouts. You will not
+              leave disappointed! Such a family vibe as soon as you walk in the
+              doors – I highly recommend checking this gym out.
+            </div>
+            <div class="profile">
+              <img src="{% static 'images/bishesh.png' %}" alt="" />
+              <a href="#">Bishesh</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</div>
+
+{% comment %}
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+{% endcomment %}
+<script src="./review.js"></script>
+
+{% comment %} {% include 'footer.html' %} {% endcomment %}
