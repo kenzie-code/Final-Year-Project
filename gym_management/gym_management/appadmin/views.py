@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import check_password,make_password
 from accounts.models import *
+from .models import *
+from customer.models import *
 # Create your views here.
 
 @login_required(login_url='/login/')
@@ -47,30 +49,121 @@ def job_request(request):
 @login_required(login_url='/login/')
 def Members_details(request):
     members = Customer_Details.objects.all()
-    return render(request,'admin_dashboard/membersdetails.html',{'act2':'active','members':members})
+    if request.GET.get('del')==True or request.GET.get('del')=='True':
+        return render(request,'admin_dashboard/membersdetails.html',{'act2':'active','members':members,'message':'Member Profile has been deleted sucessfully'})
+    return render(request,'admin_dashboard/membersdetails.html',{'act2':'active','members':members,'obj':'none'})
 
 @login_required(login_url='/login/')
 def edit_member(request):
-    return render(request,'admin_dashboard/edit_member.html',{'act2':'active'})   
+    Id = request.GET.get('id')
+    cus = Customer_Details.objects.get(id=Id)
+    pack = Package.objects.all()
+    trainer = Trainer_Details.objects.all()
+    if request.POST:
+        packa = request.POST.get('pack')
+        train = request.POST.get('train')
+        location = request.POST.get('location')
+        packa = Package.objects.get(id=packa)
+        train = CustomUser.objects.get(id=train)
+        cus.Package = packa
+        cus.Trainer = train
+        cus.Address = location
+        cus.save()
+        tra = Trainer_Details.objects.get(User=train)
+        tra.Customer.add(cus)
+        tra.save()
+        return render(request,'admin_dashboard/edit_member.html',{'act2':'active','cus':cus,'pack':pack,'trainer':trainer,'status':'success','message':'Member Profile has been updated sucessfully'})
+    return render(request,'admin_dashboard/edit_member.html',{'act2':'active','cus':cus,'pack':pack,'trainer':trainer})   
 
 @login_required(login_url='/login/')
 def Reviews(request):
-    val=request.GET.get("type")
-    print(val)
-    if val=='See':
-        dis1=''
-        dis2='none'
-    elif val == 'Post':
-        dis1='none'
-        dis2=''
-    else:
-        dis1=''
-        dis2='none'
-    return render(request,'admin_dashboard/reviews.html',{'act3':'active','dis1':dis1,'dis2':dis2})
+    reviews = Review.objects.all()
+    try :
+        if request.GET.get('del'):
+            rew = Review.objects.get(id=request.GET.get('del')).delete()
+            status = 'warning'
+            message = 'Review Deleted Sucessfully'
+            return render(request,'admin_dashboard/reviews.html',{'act3':'active','reviews':reviews})
+        elif request.GET.get('bookmark'):
+            rew = Review.objects.get(id=request.GET.get('bookmark'))
+            rew.bookmarked = True
+            rew.save()
+            status = 'info'
+            message = 'Bookmarked Sucessfully'
+            return render(request,'admin_dashboard/reviews.html',{'act3':'active','reviews':reviews,'message':message,'status':status})
+        elif request.GET.get('verify'):
+            rew = Review.objects.get(id=request.GET.get('verify'))
+            rew.verified = True
+            rew.save()
+            status = 'success'
+            message = 'Verified Sucessfully'
+            return render(request,'admin_dashboard/reviews.html',{'act3':'active','reviews':reviews,'message':message,'status':status})
+    except Exception as err:
+        print(err)
+        message = 'Something Went Wrong'
+        status = 'danger'
+        return render(request,'admin_dashboard/reviews.html',{'act3':'active','reviews':reviews,'message':message,'status':status})
+    return render(request,'admin_dashboard/reviews.html',{'act3':'active','reviews':reviews})
 
 @login_required(login_url='/login/')
 def Products_sec(request):
     return render(request,'admin_dashboard/product_sec.html',{'act4':'active'})
+
+@login_required(login_url='/login/')
+def Package_list(request):
+    pack = Package.objects.all()
+    if request.GET.get('del'):
+        Id = request.GET.get('del')
+        data = Package.objects.get(id=Id)
+        data.delete()
+        return render(request,'admin_dashboard/package.html',{'act7':'active','pack':pack,'message':'Package Deleted Sucessfully'})
+    return render(request,'admin_dashboard/package.html',{'act7':'active','pack':pack,'obj':'none'})
+
+
+@login_required(login_url='/login/')
+def edit_package(request):
+    Id = request.GET.get('id')
+    pack = Package.objects.get(id=Id)
+    Ty = Type.objects.all()
+    if request.POST:
+        Name = request.POST.get('Name')
+        theme = request.POST.get('theme')
+        Description = request.POST.get('Description')
+        Message = request.POST.get('Message')
+        Duration = request.POST.get('Duration')
+        type = request.POST.get('type')
+        Price = request.POST.get('Price')
+        pack.Name = Name
+        pack.Price = Price
+        typ = Type.objects.get(Name=type)
+        pack.Type = typ
+        pack.Description = Description
+        pack.Duration = Duration
+        pack.Message = Message
+        pack.theme=theme
+        pack.save()
+        return render(request,'admin_dashboard/edit_package.html',{'act7':'active','pack':pack,'message':'Data Saved Sucessfully','Ty':Ty})
+    return render(request,'admin_dashboard/edit_package.html',{'act7':'active','pack':pack,'obj':'none','Ty':Ty})
+
+
+@login_required(login_url='/login/')
+def add_package(request):
+    Ty = Type.objects.all()
+    if request.POST:
+        Name = request.POST.get('Name')
+        theme = request.POST.get('theme')
+        Description = request.POST.get('Description')
+        Message = request.POST.get('Message')
+        Duration = request.POST.get('Duration')
+        type = request.POST.get('type')
+        Price = request.POST.get('Price')
+        typ = Type.objects.get(Name=type)
+        pack = Package.objects.create(Name = Name,Price = Price,Type = typ,Description = Description,Duration = Duration,Message = Message,theme=theme)
+        pack.save()
+        return render(request,'admin_dashboard/add_package.html',{'act7':'active','message':'Data Saved Sucessfully','Ty':Ty})
+    return render(request,'admin_dashboard/add_package.html',{'act7':'active','obj':'none','Ty':Ty})
+
+
 
 @login_required(login_url='/login/')
 def add_product(request):
@@ -92,3 +185,13 @@ def edit_image(request):
         return render(request,'admin_dashboard/editimage.html',{'act':'active','profile':profile,'status':'primary','message':'Profile Image Saved Sucessfully'})
     return render(request,'admin_dashboard/editimage.html',{'act':'active','profile':profile,'obj':'none'})
 
+
+def add_member(request):
+    return render(request,'admin_dashboard/add_member.html',{'act2':'active'})
+
+
+def delete_member(request):
+    Id = request.GET.get('id')
+    user = CustomUser.objects.get(id=Id)
+    user.delete()
+    return redirect('/admin_dashboard/Members_details/?del=True')

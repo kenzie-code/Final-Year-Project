@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import check_password,make_password
 from accounts.models import *
+from .models import *
 # Create your views here.
 
 @login_required(login_url='/login/')
@@ -60,6 +61,9 @@ def Membership_details(request):
     return render(request,'customer_dashboard/membershipdetails.html',{'act2':'active'})
 
 def Reviews(request):
+    user_n = CustomUser.objects.get(username=request.user)
+    rew = Review.objects.filter(User=user_n)
+    print(rew)
     val=request.GET.get("type")
     pcss = ""
     scss = ""
@@ -74,7 +78,26 @@ def Reviews(request):
     else:
         dis1=''
         dis2='none'
-    return render(request,'customer_dashboard/reviews.html',{'act3':'active','dis1':dis1,'dis2':dis2,'pcss':pcss,'scss':scss})
+    if request.GET.get('del'):
+        del_rev = Review.objects.get(id=request.GET.get('del')).delete()
+        status = "warning"
+        message = "Review Deleted Sucessfully"
+        return render(request,'customer_dashboard/reviews.html',{'act3':'active','dis1':dis1,'dis2':dis2,'pcss':pcss,'scss':scss,'status':status,'message':message,'review':rew})
+    if request.POST:
+        view = request.POST.get('post_review')
+        rate = request.POST.get('rating')
+        username = request.POST.get('username')
+        
+        try :
+            
+            Rev = Review.objects.create(User=user_n,Rating=rate,content=view).save()
+            status = 'success'
+            message = 'Review Saved Sucessfully'
+        except Exception as err:
+            status = 'danger'
+            message = 'Something Went Wrong'
+        return render(request,'customer_dashboard/reviews.html',{'act3':'active','dis1':dis1,'dis2':dis2,'pcss':pcss,'scss':scss,'status':status,'message':message,'review':rew})
+    return render(request,'customer_dashboard/reviews.html',{'act3':'active','dis1':dis1,'dis2':dis2,'pcss':pcss,'scss':scss,'obj':'none','review':rew})
 
 def Products_sec(request):
     return render(request,'customer_dashboard/product_sec.html',{'act4':'active'})

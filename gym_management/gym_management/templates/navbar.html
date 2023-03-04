@@ -51,10 +51,6 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-    />
 
     {% comment %} Style sheet {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
@@ -139,7 +135,7 @@
                   <!-- <li><a class="dropdown-item active" href="#"><i class="fas fa-user mx-1"></i> {{request.user}}</a></li> -->
                   <!-- <li><hr class="dropdown-divider"></li> -->
                   <li>
-                    <a class="dropdown-item" href="/gold_member/"
+                    <a class="dropdown-item" href="/customer_dashboard/"
                       >PERSONAL TRAINING</a
                     >
                   </li>
@@ -167,13 +163,13 @@
               </div>
 
               <li class="nav-item">
-                <a class="nav-link" href="/review/"> Review </a>
-              </li>
-
-              <li class="nav-item">
                 <a class="nav-link" href="/contact/">Contact</a>
               </li>
               <li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/review/"> Review </a>
+              </li>
                 {% if request.user.is_authenticated %}
                 <div class="dropdown">
                   <a
@@ -236,6 +232,5 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   </body>
 </html>

@@ -7,6 +7,15 @@ class Feedback(models.Model):
     subject = models.CharField(max_length=100,verbose_name="Subject")
     content = models.TextField()
 
+class Review(models.Model):
+    rate = (('1','1'),('2','2'),('3','3'),('4','4'),('5','5'))
+    User = models.ForeignKey(CustomUser,on_delete=models.CASCADE,related_name='Review')
+    time = models.TimeField(auto_now_add=True)
+    Rating = models.CharField(max_length=3,choices=rate,verbose_name="Rating")
+    content = models.TextField()
+    bookmarked = models.BooleanField(default=False)
+    verified = models.BooleanField(default=False)
+
 class Bill(models.Model):
     User = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     payment_date = models.DateField(auto_now_add=True)

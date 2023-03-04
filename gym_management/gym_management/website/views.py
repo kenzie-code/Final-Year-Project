@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from appadmin.models import *
+from customer.models import *
 # Create your views here.
 from django.shortcuts import render
 
@@ -10,7 +11,8 @@ def home(request):
     cd = cards.objects.all()
     upcard = headline_cards.objects.all()
     Social = social_info.objects.all()
-    return render(request,"index.html",{'images':images,'info':info,'cards':cd,'upcard':upcard,'Social':Social})
+    rew = Review.objects.filter(bookmarked=True)
+    return render(request,"index.html",{'images':images,'info':info,'cards':cd,'upcard':upcard,'Social':Social,'rew':rew})
 
 def about(request):
     info = Information.objects.latest('business_address')
@@ -34,12 +36,9 @@ def contact(request):
     Social = social_info.objects.all()
     return render(request,"contact.html",{'info':info,'Social':Social})
 
-def gold(request):
-    info = Information.objects.latest('business_address')
-    Social = social_info.objects.all()
-    return render(request, "gold_member.html", {'info':info,'Social':Social})
 
 def review(request):
+    # return render(request,'rev_page.html')
     info = Information.objects.latest('business_address')
     Social = social_info.objects.all()
     return render(request, "review.html", {'info':info,'Social':Social})

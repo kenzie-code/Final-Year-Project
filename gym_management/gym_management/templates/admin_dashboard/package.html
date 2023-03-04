@@ -1,0 +1,133 @@
+{% include 'admin_dashboard/upper.html' %}
+
+<style>
+  .btn1{
+    background: #282828 ;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .btn1:hover{
+    background: #414141 ;
+    color: white;
+  }
+  .row{
+    display: flex;
+  }
+  .col-6{
+    width: 50%;
+    border: 1px;
+    border-bottom: 1px solid #e7e9ed;
+  }
+  .A{
+    background-color: white;
+  }
+  .In{
+    margin-top: 25px;
+  }
+  .B{
+    background-color:#282828;
+    color: rgb(189, 177, 177);
+  }
+  .B a{
+    color: red;
+  }
+  .B h4{
+    color:white;
+  }
+  .B h5{
+    color:white;
+  }
+  .B h6{
+    color:white;
+  }
+</style>
+
+<div class="app-wrapper">
+	    
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+          
+          <div class="position-relative mb-3">
+            <div class="row g-3 justify-content-between">
+                <div class="col-auto">
+                    <h1 class="app-page-title mb-0">Package</h1>
+                </div>
+                <div class="col-auto">
+                    <div class=" page-utilities sbtn">
+                        <a href="/admin_dashboard/package/add/"><button class="btn1">Add Package</button></a>
+                    </div><!--//page-utilities-->
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-danger d-{{obj}}" style="margin-left:25px; width:75%;" role="alert">
+          {{message}}
+        </div>
+            <section style="background-color: #f5f6fe;">
+                <div class="container">
+                  <div class="row justify-content-center mb-3">
+                    {% for i in pack %}
+                      {% if i.theme == "Black"%}
+                      <div class="row col-6 B mb-5" >
+                        <div class="col-6 In">
+                            <h4>{{i.Name}}</h4>
+                        </div>
+                        <div class="col-6 In">
+                          <a href="/admin_dashboard/package/?del={{i.id}}" class="">Delete</a>
+                        </div>
+                        <div style="margin-top: 10px;">
+                          <h5>Description</h5>
+                          <p>{{i.Description}}</p>
+                          <h6>Message</h6>
+                          <p>{{i.Message}}</p>
+                          <h8>{{i.Duration}} Week</h8>
+                        </div>
+                          <div class="col-6" style="margin-top: 10px;">
+                            <h6>Rs {{i.Price}}</h6>
+                      </div>
+                      <div class="col-6" style="margin-top: 10px; float: right;" >
+                        <a href="/admin_dashboard/package/edit/?id={{i.id}}" class=""><i class="far fa-edit mb-5"></i></a>
+                      </div>
+                      </div>
+                      {% else %}
+                      <div class="row col-6 A mb-5" >
+                        <div class="col-6 In">
+                            <h4>{{i.Name}}</h4>
+                        </div>
+                        <div class="col-6 In">
+                          <a href="/admin_dashboard/package/?del={{i.id}}" class="">Delete</a>
+                        </div>
+                        <div style="margin-top: 10px;">
+                          <h5>Description</h5>
+                          <p>{{i.Description}}</p>
+                          <h6>Message</h6>
+                          <p>{{i.Message}}</p>
+                          <h8>{{i.Duration}} Week</h8>
+                        </div>
+                          <div class="col-6" style="margin-top: 10px;">
+                            <h6>Rs {{i.Price}}</h6>
+                      </div>
+                      <div class="col-6" style="margin-top: 10px; float: right;" >
+                        <a href="/admin_dashboard/package/edit/?id={{i.id}}" class=""><i class="far fa-edit mb-5"></i></a>
+                      </div>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </section>
+        </div>
+        
+    </div>
+</div> 
+
+
+    <!-- Javascript -->          
+    <script src="/static/customer_dashboard/plugins/popper.min.js"></script>
+    <script src="/static/customer_dashboard/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    <!-- Page Specific JS -->
+    <script src="/static/customer_dashboard/js/app.js"></script> 
+
+</body>
+</html> 

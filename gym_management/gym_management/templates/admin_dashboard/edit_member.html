@@ -1,110 +1,166 @@
+{% load static %}
+
 {% include 'admin_dashboard/upper.html' %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
-
-    .card{
-        border: 5px solid white;
-        border-radius: 15px;
-        color: white;
-        background:#282828 ;
+	input {
+        width: 240px;
+        padding: 0.375rem 0.75rem;
+        font-size: 1re;  
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
-    .head{
-        font-size: 2.5rem;
+    select {
+        width: 240px;
+        padding: 0.375rem 0.75rem;
+        font-size: 1re;  
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
-
-    .form-input1 input{
-        border: 2px solid white;
-        border-radius: 10px;
-        color: white;
-        width: 29rem;
-        margin-bottom: 10px;
-        padding: 10px;
-        background: #282828 ;
-
+    textarea {
+        width: 240px;
+        padding: 0.375rem 0.75rem;
+        font-size: 1re   ;   
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
-    .signup{
-        background-color: #414141;
-        color: white;
-    }
-    .signup:hover{
-        background-color: white;
-        color: #282828;
-    }
-       
-
 </style>
-
-<div class="app-wrapper">
+    
+    <div class="app-wrapper">
 	    
-    <div class="app-content pt-3 p-md-3 p-lg-4">
-        <div class="container-xl">
-            
-            <h1 class="app-page-title">Edit Member Details</h1>
-            
+	    <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+			    
+			    <h1 class="app-page-title">Edit Member</h1>
+                <div class="row gy-4">
+	                <div class="col-12 col-lg-6">
+		                <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
+						    <div class="app-card-header p-3 border-bottom-0">
+						        <div class="row align-items-center gx-3">
+							        <div class="col-auto">
+								        <div class="app-icon-holder">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+                            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                            <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+                          </svg>
+									    </div><!--//icon-holder-->
+						                
+							        </div><!--//col-->
+							        <div class="col-auto">
+								        <h4 class="app-card-title">Profile</h4>
+							        </div><!--//col-->
+						        </div><!--//row-->
+						    </div><!--//app-card-header-->
+                            <div class="alert alert-{{status}} d-{{obj}}" style="margin-left:25px; width:75%;" role="alert">
+                                {{message}}
+                              </div>
+                            <form method='post'>
+                                {% csrf_token %}
+                                <div class="app-card-body px-4 w-100">
+                                    <div class="item border-bottom py-3">
+                                        <div class="row justify-content-between align-items-center">
+                                            <div class="col-auto">
+                                                <div class="item-label"><strong>Member Username</strong></div>
+                                                <div class="item-data"><input type="text" name="user" value="{{cus.User}}" readonly> </div>
+                                            </div><!--//col-->
+                                            <div class="col text-end">
+                                                {% comment %} <a class="btn-sm app-btn-secondary" href="#">Change</a> {% endcomment %}
+                                            </div><!--//col-->
+                                        </div><!--//row-->
+                                    </div><!--//item-->
+                                    <div class="item border-bottom py-3">
+                                        <div class="row justify-content-between align-items-center">
+                                            <div class="col-auto">
+                                                <div class="item-label"><strong>Package</strong></div>
+                                                <div class="item-data">
+                                                    <select name="pack" id="package">
 
-            <div class="container mt-5 mb-5">
+                                                        <option value="{{cus.Package.id}}" selected>{{cus.Package}}</option>
+                                                    {% for i in pack %}
+                                                        <option value="{{i.id}}">{{i}}</option>
+                                                    {% endfor %}
+                                                  </select>
+                                                </div>
+                                            </div><!--//col-->
+                                            <div class="col text-end">
+                                                {% comment %} <a class="btn-sm app-btn-secondary" href="#">Change</a> {% endcomment %}
+                                            </div><!--//col-->
+                                        </div><!--//row-->
+                                        <div class="row justify-content-between align-items-center py-3">
+                                            <div class="col-auto">
+                                                <div class="item-label"><strong>Trainer</strong></div>
+                                                <div class="item-data">
+                                                    <select name="train" id="trainer">
 
-                <div class="row d-flex align-items-center justify-content-center">
-    
-                  <div class="col-md-6">
-    
-    
-                    <div class="card px-5 py-5">
-    
-                      <h5 class=" text-white head">Edit Details</h5>
-                      
-                      <hr>
+                                                        <option value="{{cus.Trainer.id}}" selected>{{cus.Trainer}}</option>
+                                                    {% for i in trainer %}
+                                                        <option value="{{i.User.id}}">{{i.User}}</option>
+                                                    {% endfor %}
+                                                  </select>
+                                                </div>
+                                            </div><!--//col-->
+                                            <div class="col text-end">
+                                                {% comment %} <a class="btn-sm app-btn-secondary" href="#">Change</a> {% endcomment %}
+                                            </div><!--//col-->
+                                        </div><!--//row-->
+                                        <div class="row justify-content-between align-items-center">
+                                          <div class="col-auto">
+                                              <div class="item-label"><strong>Address</strong></div>
+                                              <div class="item-data">
+                                                  <textarea name="location">{{cus.Address}}</textarea>
+                                              </div>
+                                          </div><!--//col-->
+                                          <div class="col text-end">
+                                              {% comment %} <a class="btn-sm app-btn-secondary" href="#">Change</a> {% endcomment %}
+                                          </div><!--//col-->
+                                      </div>
+                                    </div><!--//item-->
+                                    
+                                </div><!--//app-card-body-->
+                            
+						    <div class="app-card-footer p-4 mt-auto">
+							   <button class="btn app-btn-secondary" type="submit">Save Profile</button>
+						    </div><!--//app-card-footer-->
+                        </form>
+						</div><!--//app-card-->
+	                </div>
+	                
+                </div><!--//row-->
+			    
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->
+	    
+    </div><!--//app-wrapper-->    					
 
-                      <div class="form-input1">
-                        <input type="text" class="form-control1" placeholder="Email address">
-                      </div>
-    
-                      <div class="form-input1">
-                        <input type="text" class="form-control1" placeholder="User name">           
-                      </div>
-    
-    
-                      <div class="form-input1">
-                        <input type="text" class="form-control1" placeholder="password">
-                      </div>
-
-                      <div class="form-input1">
-                        <input type="text" class="form-control1" placeholder="Name">
-                      </div>
-
-                      <div class="form-input1">
-                        <input type="text" class="form-control1" placeholder="Location">
-                      </div>
-
-                      <div class="form-input1">
-                        <label>Profile Picture : </label>
-                        <input type="file" class="form-control1" placeholder="Profile Image">
-                      </div>
-    
-    
-                      <button class="btn btn-primary mt-4 signup">Edit</button>
-                    </div>
-    
-    
-                    
-                  </div>
-                  
-                </div>
-                
-              </div>
-
-
-        </div>
-    </div>
-</div>
-
-
-<script src="/static/customer_dashboard/plugins/popper.min.js"></script>
-    <script src="/static/customer_dashboard/plugins/bootstrap/js/bootstrap.min.js"></script>  
+	
+    <!-- Javascript -->          
+    <script src="{% static 'customer_dashboard/plugins/popper.min.js' %}"></script>
+    <script src="{% static 'customer_dashboard/plugins/bootstrap/js/bootstrap.min.js' %}"></script>  
     
     <!-- Page Specific JS -->
-    <script src="/static/customer_dashboard/js/app.js"></script> 
+    <script src="{% static 'customer_dashboard/js/app.js' %}"></script> 
 
 </body>
-</html>
+</html> 
+

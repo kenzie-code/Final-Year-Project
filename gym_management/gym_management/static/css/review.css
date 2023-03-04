@@ -5,15 +5,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
-:root{
+/* :root{
     --color-dark: #151C35;
     --color-secodary-dark: #464C70;
     --color-primary: #EE709D;
     --color-text: #8297E2;
     --color-light: #EBEBFB;
-}
+} */
 
-.container{
+.container1{
     height: 98vh;
     display: flex;
     flex-direction: column;

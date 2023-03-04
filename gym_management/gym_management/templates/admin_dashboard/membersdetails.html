@@ -27,14 +27,44 @@
     .socio a:hover{
         color: blue;
     }
+    .add {
+        background-color: #282828;
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+        float: right;
+    }
+    .add:hover {
+        color: white;
+        background-color: #1a1a1a;
+    }
+    .bi-trash{
+        color: white;
+    }
+    .bi-trash:hover{
+        color: rgb(170, 0, 0);
+    }
 </style>
 
 <div class="app-wrapper">
 	    
     <div class="app-content pt-3 p-md-3 p-lg-4">
         <div class="container-xl">
-            
-            <h1 class="app-page-title">Members Details</h1>
+            <div class="position-relative mb-3">
+                <div class="row g-3 justify-content-between">
+                    <div class="col-auto">
+                        <h1 class="app-page-title mb-0">Member Details</h1>
+                    </div>
+                    <div class="col-auto">
+                        <!-- <div class=" page-utilities sbtn">
+                            <a class="add" href="/admin_dashboard/Members_details/member/add/">Add Member</a>
+                        </div>//page-utilities -->
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-danger d-{{obj}}" style="margin-left:25px; width:75%;" role="alert">
+                {{message}}
+              </div>
             <div class="row">
                 {% for i in members %}
                     <section class="col-lg-6">
@@ -49,11 +79,21 @@
                                     alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
                                     <h5 class="">{{i.Name}}</h5>
                                     
-                                    <a href="/appadmin/Members_details/edit" class=""><i class="far fa-edit mb-5"></i></a>
+                                    <a href="/admin_dashboard/Members_details/member/edit/?id={{i.id}}" class=""><i class="far fa-edit mb-5"></i></a>
                                 </div>
                                 <div class="gradient-custom col-md-8">
                                     <div class="card-body p-4">
-                                    <h6>Information</h6>
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <h6>Information</h6>
+                                        </div>
+                                        <div class="col-2">
+                                            <a href="/admin_dashboard/Members_details/member/delete/?id={{i.User.id}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                              </svg></a>
+                                        </div>
+                                    </div>
                                     <hr class="mt-0 mb-4">
                                     <div class="row pt-1">
                                         <div class="col-6 mb-3">
@@ -81,11 +121,11 @@
                                         <p class="text-muted">{{i.Trainer}}</p>
                                         </div>
                                     </div>
-                                    <div class="socio d-flex justify-content-start">
+                                    <!-- <div class="socio d-flex justify-content-start">
                                         <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
                                         <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
                                         <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                                    </div>
+                                    </div> -->
                                     </div>
                                 </div>
                                 </div>

@@ -1,0 +1,164 @@
+{% include 'admin_dashboard/upper.html' %}
+
+<style>
+    select {
+        width: 240px;
+        padding: 0.375rem 0.75rem;
+        font-size: 1re;  
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    textarea {
+        width: 240px;
+        padding: 0.375rem 0.75rem;
+        font-size: 1re   ;   
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    input {
+        width: 240px;
+        padding: 0.375rem 0.75rem;
+        font-size: 1re;  
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+  .btn1{
+    background: #282828 ;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .btn1:hover{
+    background: #414141 ;
+    color: white;
+  }
+  .row{
+    display: flex;
+  }
+  .col-6{
+    width: 50%;
+    border: 1px;
+    border-bottom: 1px solid #e7e9ed;
+  }
+  .A{
+    background-color: white;
+  }
+  .In{
+    margin-top: 25px;
+  }
+  .B{
+    background-color:#282828;
+    color: rgb(189, 177, 177);
+  }
+  .B a{
+    color: red;
+  }
+  .B h4{
+    color:white;
+  }
+  .B h5{
+    color:white;
+  }
+  .B h6{
+    color:white;
+  }
+</style>
+
+<div class="app-wrapper">
+	    
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+          
+          <div class="position-relative mb-3">
+            <div class="row g-3 justify-content-between">
+                <div class="col-auto">
+                    <h1 class="app-page-title mb-0">Package</h1>
+                </div>
+                <div class="col-auto">
+                    <div class=" page-utilities sbtn">
+                        <a href="package/add/"><button class="btn1">Add Package</button></a>
+                    </div><!--//page-utilities-->
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-danger d-{{obj}}" style="margin-left:25px; width:75%;" role="alert">
+          {{message}}
+        </div>
+            <section style="background-color: #f5f6fe;">
+                <div class="container">
+                  <div class="row justify-content-center mb-3">
+                    <form method="post">
+                        {% csrf_token %}
+                      <div class="row col-6 A mb-5" >
+                        <div class="col-6 In">
+                            <h6>Title</h6>
+                            <h4><input name="Name" /></h4>
+                        </div>
+                        <div class="col-6 In">
+                            <h6>Theme</h6>
+                            <select name="theme" id="package" style="margin-left: 10px; width: 50%;">
+                                    <option value="Black">Black</option>
+                                    <option value="White">White</option>
+                                </select>
+                        </div>
+                        <div style="margin-top: 10px;">
+                          <h5>Description</h5>
+                          <textarea name="Description"></textarea>
+                          <h6>Message</h6>
+                          <textarea name="Message"></textarea>
+                          <h6>Week</h6>
+                          <h8><input name="Duration" /></h8>
+                          <h6>Type</h6>
+                            <select name="type" id="package">
+                            {% for i in Ty %}
+                                <option value="{{i}}">{{i}}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                          <div class="col-6" style="margin-top: 10px; margin-bottom: 20px;">
+                            <h6>Rs <input name="Price" /></h6>
+                      </div>
+                      <div class="col-6" style="margin-bottom: 20px;" >
+                        <button type="submit" class="btn1" style="margin-left: 40px; margin-top: 20px;"><span style="padding:10px;">Save</span></i></button>
+                      </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </section>
+        </div>
+        
+    </div>
+</div> 
+
+
+    <!-- Javascript -->          
+    <script src="/static/customer_dashboard/plugins/popper.min.js"></script>
+    <script src="/static/customer_dashboard/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    <!-- Page Specific JS -->
+    <script src="/static/customer_dashboard/js/app.js"></script> 
+
+</body>
+</html> 

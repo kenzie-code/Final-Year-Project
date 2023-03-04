@@ -1,6 +1,16 @@
 {% include 'customer_dashboard/upper.html' %}
 
 <style>
+    .checked {
+    color: orange;
+    }
+    select{
+        padding: 10px;
+        width: 50%;
+    }
+    .del{
+        color: #282828 ;
+    }
     a .btn1{
         background: #282828 ;
         color: white;
@@ -53,73 +63,81 @@
                     </div>
                 </div>
             </div>
+            <div class="alert alert-{{status}} d-{{obj}}" style="margin-left:25px; width:75%;" role="alert">
+                {{message}}
+              </div>
             
 
             <div class="d-{{dis1}}">
+            {% for i in review %}
                 <div class="app-card app-card-notification shadow-sm mb-4">
                     <div class="app-card-header px-4 py-3">
                         <div class="row g-3 align-items-center">
                             <div class="col-12 col-lg-auto text-center text-lg-start">						        
-                                <img class="profile-image" src="/static/customer_dashboard/images/user.png" alt="">
+                                {%if request.user.profile_image  %}
+                                        <img class="profile-image" src="{{request.user.profile_image.url}}" alt="user profile">
+                                    {% else %}
+                                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                        </svg> 
+                                    {% endif %}
                             </div><!--//col-->
                             <div class="col-12 col-lg-auto text-center text-lg-start">
-                                <h4 class="notification-title mb-1">James Doe</h4>
+                                <h4 class="notification-title mb-1">{{i.User.username}}</h4>
                                 
                                 <ul class="notification-meta list-inline mb-0">
-                                    <li class="list-inline-item">2 hrs ago</li>
+                                    <li class="list-inline-item">{{i.time}}</li>
                                 </ul>
-                        
                             </div><!--//col-->
+                            
                         </div><!--//row-->
                     </div><!--//app-card-header-->
-                    <div class="app-card-body p-4">
-                        <div class="notification-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ultrices dolor, ac maximus ligula. Donec ex orci, mollis ac purus vel, tempor pulvinar justo. Praesent nibh massa, posuere non mollis vel, molestie non mauris. Aenean consequat facilisis orci, sed sagittis mauris interdum at.</div>
+                    <div class="app-card-body p-4 row">
+                        <div class="notification-content col-8">{{i.content}}</div>
+                        <div class="col-3"> 
+                            {% if i.Rating == "1" %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            {% elif i.Rating == "2" %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            {% elif i.Rating == "3" %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            {% elif i.Rating == "4" %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                            {% else %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            {% endif %}
+                            
+                        </div>
+                        <div class="col-1">
+                            <a href="/customer_dashboard/reviews/?del={{i.id}}" class="del"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                                <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
+                              </svg></a>
+                        </div>
                     </div><!--//app-card-body-->
+                    
                 </div><!--//app-card-->
-
-                <div class="app-card app-card-notification shadow-sm mb-4">
-                    <div class="app-card-header px-4 py-3">
-                        <div class="row g-3 align-items-center">
-                            <div class="col-12 col-lg-auto text-center text-lg-start">						        
-                                <img class="profile-image" src="/static/customer_dashboard/images/user.png" alt="">
-                            </div><!--//col-->
-                            <div class="col-12 col-lg-auto text-center text-lg-start">
-                                <h4 class="notification-title mb-1">James Doe</h4>
-                                
-                                <ul class="notification-meta list-inline mb-0">
-                                    <li class="list-inline-item">2 hrs ago</li>
-                                </ul>
-                        
-                            </div><!--//col-->
-                        </div><!--//row-->
-                    </div><!--//app-card-header-->
-                    <div class="app-card-body p-4">
-                        <div class="notification-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ultrices dolor, ac maximus ligula. Donec ex orci, mollis ac purus vel, tempor pulvinar justo. Praesent nibh massa, posuere non mollis vel, molestie non mauris. Aenean consequat facilisis orci, sed sagittis mauris interdum at.</div>
-                    </div><!--//app-card-body-->
-                </div><!--//app-card-->
-
-
-                <div class="app-card app-card-notification shadow-sm mb-4">
-                    <div class="app-card-header px-4 py-3">
-                        <div class="row g-3 align-items-center">
-                            <div class="col-12 col-lg-auto text-center text-lg-start">						        
-                                <img class="profile-image" src="/static/customer_dashboard/images/user.png" alt="">
-                            </div><!--//col-->
-                            <div class="col-12 col-lg-auto text-center text-lg-start">
-                                <h4 class="notification-title mb-1">James Doe</h4>
-                                
-                                <ul class="notification-meta list-inline mb-0">
-                                    <li class="list-inline-item">2 hrs ago</li>
-                                </ul>
-                        
-                            </div><!--//col-->
-                        </div><!--//row-->
-                    </div><!--//app-card-header-->
-                    <div class="app-card-body p-4">
-                        <div class="notification-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ultrices dolor, ac maximus ligula. Donec ex orci, mollis ac purus vel, tempor pulvinar justo. Praesent nibh massa, posuere non mollis vel, molestie non mauris. Aenean consequat facilisis orci, sed sagittis mauris interdum at.</div>
-                    </div><!--//app-card-body-->
-                </div><!--//app-card-->
-
+            {% endfor %}
+            </div>
 
                 <!--<div class="app-card app-card-notification shadow-sm mb-4">
                     <div class="app-card-header px-4 py-3">
@@ -176,32 +194,50 @@
                     </div>
                 </div> -->
                 
-                <div class="text-center mt-4"><a class="btn app-btn-secondary" href="#">Load more notifications</a></div>
-            </div>
+                <!-- <div class="text-center mt-4"><a class="btn app-btn-secondary" href="#">Load more notifications</a></div>
+            </div> -->
 
 
             <div class="d-{{dis2}}">
-                <form>
+                <form method="post">
+                    {% csrf_token %}
                     <div class="app-card app-card-notification shadow-sm mb-4">
                         <div class="app-card-header px-4 py-3">
                             <div class="row g-3 align-items-center">
                                 <div class="col-12 col-lg-auto text-center text-lg-start">						        
-                                    <img class="profile-image" src="/static/customer_dashboard/images/user.png" alt="">
+                                    {%if request.user.profile_image  %}
+                                        <img class="profile-image" src="{{request.user.profile_image.url}}" alt="user profile">
+                                    {% else %}
+                                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                        </svg> {{request.user.Customer_Details.Name}}
+                                    {% endif %}
                                 </div><!--//col-->
                                 <div class="col-12 col-lg-auto text-center text-lg-start">
-                                    <h4 class="notification-title mb-1">James Doe</h4>
+                                    <h4 class="notification-title mb-1">{{request.user}}</h4>
                             
                                 </div><!--//col-->
                             </div><!--//row-->
                         </div><!--//app-card-header-->
                         <div class="app-card-body p-4">
-                            <div class="notification-content"><textarea name="post_review" cols="177" rows="5"></textarea></div>
-
-                            
+                            <div class="notification-content">
+                                <h6>Service Review</h6>
+                                <textarea name="post_review" cols="100" rows="5"></textarea></div>
+                            <div class="notification-content">
+                                <h6>Service Rating</h6>
+                                <select name="rating">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <input style="display: none;" name="username" value="{{request.user.username}}" />
                         </div><!--//app-card-body-->
                     </div><!--//app-card-->
 
-                    <button type="button" class="btn btn-dark btn3" style="background-color: black; color: alice#282828 ;">Post</button>
+                    <button type="submit" class="btn btn-dark btn3" style="background-color: black; color: alice#282828 ;">Post</button>
                 </form>
 
             </div>

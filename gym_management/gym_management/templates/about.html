@@ -2,88 +2,8 @@
 {% include 'navbar.html' %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}" />
 
-{% comment %} <style>
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap");
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-html {
-  font-family: "Montserrat";
-}
-section {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: #1e1f26; */
-}
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 50px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: aqua; */
-}
-.left {
-  width: 50%;
-  height: 600px;
-  background: url(https://th.bing.com/th/id/R.e1cfc23645c03811746a65f11468b208?rik=%2b1iEmoZlBKkw9A&pid=ImgRaw&r=0)
-    no-repeat center / cover;
-  border-radius: 8px;
-}
-.right {
-  width: 50%;
-  min-height: 400px;
-  background-color: #303137;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  border-radius: 8px;
-  color: white;
-  margin-left: -150px;
-}
-.right h1 {
-  font-size: 40px;
-  font-weight: lighter;
-}
-.right p {
-  margin: 20px 0;
-  font-weight: 500;
-  line-height: 25px;
-}
-.right a {
-  text-decoration: none;
-  text-transform: uppercase;
-  background-color: white;
-  color: black;
-  padding: 20px 30px;
-  display: inline-block;
-  letter-spacing: 2px;
-}
 
-@media only screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    width: 100%;
-    margin: 0 20px;
-  }
-  .left {
-    width: 100%;
-    height: 400px;
-  }
-  .right {
-    width: 90%;
-    margin: 0;
-    margin-top: -100px;
-  }
-}
-</style> {% endcomment %}
+
 
 {% comment %} About Section Main Page Starts {% endcomment %}
  <main>
@@ -221,76 +141,9 @@ section {
   {% comment %} Carousel slide {% endcomment %}
 
  
-  {% comment %} <div class="container-fluid my-5">
-    <div class="row">
-        <div class="col-12 m-auto">
-            <div class="owl-carousel owl-theme">
-                <div class="item mb-4">
-                    <div class="card border-0 shadow">
-                        <img src="" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <div class="card-title text-center">
-                                <h4></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="card border-0 shadow">
-                        <img src="{% static 'images/img1.jpg' %}" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <div class="card-title text-center">
-                                <h4></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card border-0 shadow">
-                        <img src="{% static 'images/img2.jpg' %}" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <div class="card-title text-center">
-                                <h4></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card border-0 shadow">
-                        <img src="{% static 'images/img3.jpg' %}" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <div class="card-title text-center">
-                                <h4></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card border-0 shadow">
-                        <img src="6.jpg" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <div class="card-title text-center">
-                                <h4></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card border-0 shadow">
-                        <img src="7.jpg" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <div class="card-title text-center">
-                                <h4></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div> {% endcomment %}
+  <div class="container-fluid my-5">
+    {% include 'carousel.html' %}
+</div>
 
   {% comment %} Premium gym {% endcomment %}
 
@@ -307,25 +160,9 @@ section {
             
           </p>
       </div>
+      {% include 'premium.html' %}
     </div>
   </section>
-
-  {% comment %} <section>
-    <div class="container">
-      <div class="left"></div>
-      <div class="right">
-        <div class="content">
-          <h1>PERSONAL TRAINING</h1>
-          <p>
-            Maximize your potential with our 360 degree approach. From
-            lifestyle & nutrition to stress reduction. We are dedicated to
-            help you reach your goals.
-          </p>
-          <a href="#" class="btn">Click Me</a>
-        </div>
-      </div>
-    </div>
-  </section> {% endcomment %}
 </main>
 
 {% include 'footer.html' %}
