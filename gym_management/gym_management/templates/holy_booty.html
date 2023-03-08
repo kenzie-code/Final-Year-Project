@@ -1,1 +1,167 @@
-{% load static %} {% include 'navbar.html' %} {% include 'footer.html' %}
+{% load static %} {% include 'navbar.html' %}
+
+<style>
+  .mainn1 {
+    background: url(https://www.muscleandfitness.com/wp-content/uploads/2019/03/Female-Doing-Glute-Exercises-With-A-Resistance-Band-Under-Her-Butt.jpg?quality=86&strip=all)
+      no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  .bt234 {
+    font-family: FSHackney-regular, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 48px;
+    font-size: 32px;
+    margin: 0px 0px 16px;
+    {% comment %} text-align: center; {% endcomment %}
+    letter-spacing: 14.86px;
+  }
+  .yuqil{
+    line-height: 20px;
+    font-family: FSHackney-regular, sans-serif;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin: 24px 0px;
+    text-transform: uppercase;
+    {% comment %} text-align: center; {% endcomment %}
+    letter-spacing: 6px;
+    font-weight: 400;
+  }
+  .personal_training {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+  }
+  #personal_1 {
+    font-family: "Times New Roman", Times, serif;
+    color: #302930;
+    font-size: medium;
+  }
+
+  #personal_train {
+    font-size: calc(1.3rem + 0.6vw);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: "Poppins", sans-serif;
+  }
+  #book_session{
+    font-weight: 500;
+    font-size: 14px;
+  
+    text-align: center;
+  }
+  #book_session1{
+    width: 400px;
+  }
+  .text{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+  }
+  .blog{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 40px 0 40px 0;
+  }
+  .blog .left{
+    overflow: hidden;
+    width: 50%%;
+  }
+  .blog .left img{
+    transform: scale(1);
+    transition: transform 1s;
+    
+
+  }
+  .blog .left:hover img{
+    transform: scale(1.05);
+    transition: transform 1s;
+
+  }
+  .blog .right{
+    width: 50%;
+    padding: 40px 0 40px 10px;
+    background-color: white;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px;
+    color: black;
+    margin-left: -45px;
+    z-index: 1;
+  }
+  .heyeh{
+    font-size: calc(1.3rem + 0.6vw);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: "Poppins", sans-serif;
+  }
+  .nai7h{
+    font-family: "Times New Roman", Times, serif;
+    color: #302930;
+    font-size: medium;
+
+  }
+
+</style>
+
+<main class="mb-5">
+  <section class="mainn1 py-5">
+    <div class="container py-5 text-white">
+      <div class="row py-3">
+        <div class="col-lg-10">
+          <h1 class="bt234 m-0 mt-5 text-bold">HOLY BOOTY</h1>
+          <p class="yuqil mt-3 text-primary text-bold">
+            STAIR CLIMBERS & WEIGHTS
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="personal_training pb-5 mt-5" id="personal">
+    <div class="container container-start-now">
+      <div class="row">
+        <h3 class="text-center mt-5" id="personal_train">HOLY BOOTY</h3>
+        <p class="text-center mt-4" id="personal_1">
+            Shape your booty into perfection with our intense 50-minute booty workout. This class is all about targeting your glutes, building strength and toning </br>
+             the hottest areas of your body. Just so you know, this is not your average booty class. Expect a next level booty experience.</br>
+              Once you’ve finished your workout, you’ll feel ready to take on the world. And seriously, with that butt, no one is gonna stop you.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-12 mt-5 mb-5" id="book_session">
+        <button
+          type="submit"
+          class="btn btn-outline-primary text-dark ps-4 pe-4"
+          id="book_session1"
+        >
+          <a class=" text text-dark text-bold" href="">BOOK A WORKOUT </a>
+        </button>
+      </div>
+  </section>
+
+  {% comment %} Overlapping {% endcomment %}
+  <section>
+    <div class="blog">
+        <div class="left">
+            <img src="{% static 'images/img5.jpg' %}">
+        </div>
+
+        <div class="right">
+            <h1 class= "heyeh">HOLY BOOTY</h1>
+            <p class="nai7h">Welcome to Holy Booty. A true bad-ass workout. During this 50-minute workout you’ll be using the stair masters, weights and our Holy Booty band to give you the ultimate booty building experience. While boosting metabolism and burning calories, we'll sculpt your booty to perfection. That’s our promise.</p>
+        </div>
+
+    </div>
+  </section>
+
+  
+</main>
+{% include 'footer.html' %}
