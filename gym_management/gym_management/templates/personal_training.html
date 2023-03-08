@@ -24,6 +24,91 @@
     line-height: 1.2;
     font-family: "Poppins", sans-serif;
   }
+  #book_session{
+    font-weight: 500;
+    font-size: 14px;
+  
+    text-align: center;
+  }
+  #book_session1{
+    width: 400px;
+  }
+  .text{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+  }
+  .kNHaAI{
+    font-size: calc(1.3rem + 0.6vw);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: "Poppins", sans-serif;
+
+  }
+  .hello{
+    font-family: "Times New Roman", Times, serif;
+    color: #302930;
+    font-size: medium;
+
+  }
+  .wrapper{
+    width: 800px;
+    margin: 5% auto;
+  }
+  .form-area{
+    display: flex;
+    background: rgba(0,0,0,0.8);
+    border-radius: 25px;
+    padding: 1.9em;
+  }
+  .msg-area{
+    display: flex;
+    flex-direction: column;
+    order: 2;
+  }
+  .msg-area > textarea{
+    flex: 1;
+    min-width: 18em;
+    background: transparent;
+    color: #fff;
+    padding: 15px;
+  }
+  .details-area{
+    flex: 1;
+    order: 1;
+    margin-right: 2em;
+  }
+
+  .details-area input{
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    border-radius: 40px;
+  }
+  .details-area input,
+  .details-area button{
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+  .details-area button{
+    background: blue;
+    color: #fff;
+    border: 0;
+    padding: 15px 50px;
+    border-radius: 40px;
+    font-family: poppins;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  label{
+    color: #fff;
+    text-tranform: uppercase;
+    line-height: 40px;
+    font-family: Audiowide;
+  }
+
+  
 </style>
 
 <main class="mb-5">
@@ -46,11 +131,163 @@
         <h3 class="text-center mt-5" id="personal_train">PERSONAL TRAINING</h3>
         <p class="text-center mt-4" id="personal_1">
           At SWEATY ATHLETIC we redefine your perception of Personal Training. We make it fun and exciting to work </br>
-           with a personal trainer, while always making sure you reach your personal</br>
-            goals the fastest, most effective way possible. No matter your goal, we will get you there!
+           with a personal trainer, while always making sure you reach your personal goals the fastest,</br>
+            most effective way possible. No matter your goal, we will get you there!
         </p>
       </div>
     </div>
+
+    <div class="col-12 mt-5 mb-5" id="book_session">
+        <button
+          type="submit"
+          class="btn btn-outline-primary text-dark ps-4 pe-4"
+          id="book_session1"
+        >
+          <a class=" text text-dark text-bold" href="">BOOK YOUR FREE SESSION </a>
+        </button>
+      </div>
   </section>
+
+  {% comment %} Whats in it for me section {% endcomment %}
+
+  <section class="personal_training" id="personal">
+    <div class="container container-start-now">
+      <div class="row">
+        <h3 class="text-center mt-3" id="personal_train">
+            WHAT'S IN IT FOR ME
+        </h3>
+          <p class="text-center mt-4" id="personal_1">
+            Achieve amazing results by gradually discovering the transformation process. Our commitment is coaching both</br>
+             inside of the gym through training and outside of the gym with lifestyle habits</br>
+            (sleep, stress, nutrition)to accomplish your goals.
+          </p>
+      </div>
+    </div>
+  </section>
+
+  {% comment %} Grid for personal training section {% endcomment %}
+
+  <section class="grid pb-3 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3 class="Heading-sc-1ejq5fa-0 kNHaAI">WE ARE COMMITTED</h3>
+          <p class="Text-sc-w62x9v-0 ilsOqB mt-3 hello">We make a commitment to you to be here, ready and focused on your next level. We’re fully dedicated to helping you reach your goals.You will train weekly to make this a lifestyle decision.
+          </p>
+        </div>
+
+        <div class="col">
+          <h3 class="Heading-sc-1ejq5fa-0 kNHaAI">HABITS-BASED APPROACH</h3>
+          <p class="Text-sc-w62x9v-0 ilsOqB mt-3 hello">Our habits-based approach focuses on the daily opportunities of the four pillars of health (sleep, stress, nutrition, movement), improving where we can to optimize results.</p>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col">
+            <h3 class="Heading-sc-1ejq5fa-0 kNHaAI">MONTHLY CHECK-INS</h3>
+            <p class="Text-sc-w62x9v-0 ilsOqB mt-3 hello">Using our Sweaty Athletic app we track biomarkers such as muscle mass, body fat, strength, endurance and other various metrics to assess your progress.
+
+          </p>
+          </div>
+  
+        <div class="col">
+            <h3 class="Heading-sc-1ejq5fa-0 kNHaAI">KNOWLEDGE IS POWER</h3>
+            <p class="Text-sc-w62x9v-0 ilsOqB mt-3 hello">While training with us, we believe in teaching you the how and why to our programming, so that you have the tools to be successful in any environment.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mt-5 mb-5" id="book_session">
+        <button
+          type="submit"
+          class="btn btn-outline-primary text-dark ps-4 pe-4"
+          id="book_session1"
+        >
+          <a class=" text text-dark text-bold" href="">BOOK YOUR FREE SESSION </a>
+        </button>
+      </div>
+  </section>
+
+  {% comment %} form section {% endcomment %}
+
+  <section>
+    <div class='wrapper'>
+        <form action="" class= "form-area">
+            <div class="msg-area">
+                <label for="msg">WHAT'S YOUR GOAL</label>
+                <textarea id="msg"></textarea>
+            </div>
+
+            <div class="details-area">
+                <label for="name">FULL NAME</label>
+                <input type="text" name="" id="name">
+
+                <label for="email">EMAIL</label>
+                <input type="text" name="" id="name">
+
+                <label for="phone">PHONE</label>
+                <input type="text" name="" id="name">
+
+                <button type="submit">I'M READY</button>
+
+            </div>
+
+        </form>
+
+    </div>
+  </section>
+
+  {% comment %} next section {% endcomment %}
+
+  <section class="personal_training" id="personal">
+    <div class="container container-start-now">
+      <div class="row">
+        <h3 class="text-center mt-5" id="personal_train">
+            HOW DOES IT WORK??
+        </h3>
+          <p class="text-center mt-4" id="personal_1">
+            The first step of your next level transformation begins with a 60-minute intake session. During this intake session, </br>
+            our Personal Trainer will assess and coach you on your movement patterns, health status, and body measurements based on your goals.</br>
+            They will create a personalized, custom plan to achieve the results you want.
+          </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid pb-3 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3 class="Heading-sc-1ejq5fa-0 kNHaAI">GOAL SETTING</h3>
+          <p class="Text-sc-w62x9v-0 ilsOqB mt-3 hello">While focusing on your journey we take all details into account. Together we discuss your current training program, nutrition plan, sleep habits, physical and mental stressors and main fitness goals to understand where we are and where we want to go.
+          </p>
+        </div>
+
+        <div class="col">
+          <h3 class="Heading-sc-1ejq5fa-0 kNHaAI">PERSONALIZED PLAN</h3>
+          <p class="Text-sc-w62x9v-0 ilsOqB mt-3 hello">By measuring your progress - we use various biomarkers such as our Inbody 570 Body Composition Analyzer, movement patterns and energy systems metrics – your personal trainer creates a custom plan and timeline to achieve long-term sustainable results.
+
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+
+{% comment %} Carousel slide {% endcomment %}
+
+<div class="container-fluid my-5">
+    {% include 'carouselforpersona.html' %}
+</div>
+
+<section class="personal_training" id="personal">
+    <div class="container container-start-now">
+      <div class="row">
+        <h3 class="text-center mt-3" id="personal_train">
+            MEET OUR TRIBE
+        </h3>
+      </div>
+    </div>
+  </section>
+
 </main>
 {% include 'footer.html' %}
+
