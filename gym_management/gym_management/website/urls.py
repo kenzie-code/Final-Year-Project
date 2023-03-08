@@ -25,5 +25,13 @@ urlpatterns = [
     path('concept/', concept) ,
     path('contact/', contact) ,
     path('review/',review),
+    path('job_request/',job_req),
+    path('gold_member/', gold_member),
+    path('first_timer/', first_timer),
+    path('personal_training/', personal_training),
+    path('holy_booty/', holy_booty),
+    path('holy_box/', holy_box),
+    path('holy_ride/', holy_ride),
+    path('holy_shred/', holy_shred),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 urlpatterns = urlpatterns +static(settings.STATIC_URL,document_root=settings.STATICFILES_DIRS)

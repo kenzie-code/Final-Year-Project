@@ -1,0 +1,56 @@
+{% load static %} {% include 'navbar.html' %}
+
+<style>
+  .mainn {
+    background: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/d1be1169880087.5b9053712b6ba.jpg)
+      no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  .personal_training {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+  }
+  #personal_1 {
+    font-family: "Times New Roman", Times, serif;
+    color: #302930;
+    font-size: medium;
+  }
+
+  #personal_train {
+    font-size: calc(1.3rem + 0.6vw);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: "Poppins", sans-serif;
+  }
+</style>
+
+<main class="mb-5">
+  <section class="mainn py-5">
+    <div class="container py-5 text-white">
+      <div class="row py-3">
+        <div class="col-lg-10">
+          <h1 class="m-0 mt-5 text-bold">PERSONAL TRAINING</h1>
+          <p class="mt-3 text-primary text-bold">PERSONAL AND TAILORED</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% comment %} Personal Training section {% endcomment %}
+
+  <section class="personal_training pb-5 mt-5" id="personal">
+    <div class="container container-start-now">
+      <div class="row">
+        <h3 class="text-center mt-5" id="personal_train">PERSONAL TRAINING</h3>
+        <p class="text-center mt-4" id="personal_1">
+          At SWEATY ATHLETIC we redefine your perception of Personal Training. We make it fun and exciting to work </br>
+           with a personal trainer, while always making sure you reach your personal</br>
+            goals the fastest, most effective way possible. No matter your goal, we will get you there!
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+{% include 'footer.html' %}

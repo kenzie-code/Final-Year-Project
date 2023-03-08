@@ -1,6 +1,6 @@
 from django.db import models
 from accounts.models import CustomUser
-from appadmin.models import Package
+from appadmin.models import Package,Product
 # Create your models here.
 class Feedback(models.Model):
     User = models.ForeignKey(CustomUser,on_delete=models.CASCADE,related_name='Feedback')
@@ -28,7 +28,14 @@ class Membership(models.Model):
     Package_Details = models.ForeignKey(Package,null=True,on_delete=models.SET_NULL)
     start_date = models.DateField(auto_now_add=True)
     end_date = models.DateField(null=False)
-    Bill = models.OneToOneField(Bill,null=True,on_delete=models.SET_NULL)
+    Bill = models.OneToOneField(Bill,null=True,blank=True,on_delete=models.SET_NULL)
+    active = models.BooleanField(default=True)
 
 
-
+class cart(models.Model):
+    pro_type = (('Membership','Membership'),('Product','Product'))
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE,null=True,blank=True,related_name='Cart')
+    product_type = models.CharField(max_length=50,choices=pro_type,null=False,blank=False,verbose_name='Product Type')
+    Member = models.ForeignKey(Package,on_delete=models.CASCADE,null=True,blank=True)
+    Product = models.ForeignKey(Product,on_delete=models.CASCADE,null=True,blank=True)
+    Price = models.FloatField(default=0)

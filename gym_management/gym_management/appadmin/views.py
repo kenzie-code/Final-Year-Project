@@ -44,7 +44,13 @@ def add_trainer(request):
 
 @login_required(login_url='/login/')
 def job_request(request):
-    return render(request,'admin_dashboard/job_request.html',{'act6':'active'})
+    profile = Job_request.objects.all()
+    if request.GET.get('id'):
+        jr = Job_request.objects.get(id=request.GET.get('id')).delete()
+        return render(request,'admin_dashboard/job_request.html',{'act6':'active','profile':profile,'status':'danger','message':'Request Deleted Sucessfully'})
+    elif request.GET.get('hire') == True or request.GET.get('hire') == 'True':
+        return render(request,'admin_dashboard/job_request.html',{'act6':'active','profile':profile,'status':'success','message':'Trainer Hired Sucessfully'})
+    return render(request,'admin_dashboard/job_request.html',{'act6':'active','profile':profile,'obj':'none'})
 
 @login_required(login_url='/login/')
 def Members_details(request):
@@ -116,7 +122,7 @@ def Package_list(request):
         Id = request.GET.get('del')
         data = Package.objects.get(id=Id)
         data.delete()
-        return render(request,'admin_dashboard/package.html',{'act7':'active','pack':pack,'message':'Package Deleted Sucessfully'})
+        return render(request,'admin_dashboard/package.html',{'act7':'active','pack':pack,'status':'danger','message':'Package Deleted Sucessfully'})
     return render(request,'admin_dashboard/package.html',{'act7':'active','pack':pack,'obj':'none'})
 
 
@@ -160,7 +166,7 @@ def add_package(request):
         typ = Type.objects.get(Name=type)
         pack = Package.objects.create(Name = Name,Price = Price,Type = typ,Description = Description,Duration = Duration,Message = Message,theme=theme)
         pack.save()
-        return render(request,'admin_dashboard/add_package.html',{'act7':'active','message':'Data Saved Sucessfully','Ty':Ty})
+        return render(request,'admin_dashboard/add_package.html',{'act7':'active','status':'success','message':'Data Saved Sucessfully','Ty':Ty})
     return render(request,'admin_dashboard/add_package.html',{'act7':'active','obj':'none','Ty':Ty})
 
 
@@ -185,13 +191,27 @@ def edit_image(request):
         return render(request,'admin_dashboard/editimage.html',{'act':'active','profile':profile,'status':'primary','message':'Profile Image Saved Sucessfully'})
     return render(request,'admin_dashboard/editimage.html',{'act':'active','profile':profile,'obj':'none'})
 
-
+@login_required(login_url='/login/')
 def add_member(request):
     return render(request,'admin_dashboard/add_member.html',{'act2':'active'})
 
-
+@login_required(login_url='/login/')
 def delete_member(request):
     Id = request.GET.get('id')
     user = CustomUser.objects.get(id=Id)
     user.delete()
     return redirect('/admin_dashboard/Members_details/?del=True')
+
+@login_required(login_url='/login/')
+def hire(request):
+    if request.POST:
+        Id = request.POST.get('id')
+        jb = Job_request.objects.get(id=Id)
+        cu = CustomUser.objects.create(username=jb.Email,password=make_password('12345678@'),user_type='Trainer').save()
+        cu = CustomUser.objects.get(username=jb.Email)
+        td = Trainer_Details.objects.create(User=cu,Name=jb.Name,Email=jb.Email,Address=jb.Address,
+            facebook=jb.facebook,twitter=jb.twitter,instagram=jb.instagram).save()
+        jb.delete()
+        url = '/admin_dashboard/job_request/?hire=True'
+        return redirect(url)
+    return redirect('/admin_dashboard/job_request/')

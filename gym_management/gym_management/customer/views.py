@@ -4,6 +4,7 @@ from django.contrib.auth.hashers import check_password,make_password
 from accounts.models import *
 from .models import *
 # Create your views here.
+from django.db.models import Sum
 
 @login_required(login_url='/login/')
 def home_dash(request):
@@ -56,10 +57,15 @@ def edit_image(request):
     return render(request,'customer_dashboard/editimage.html',{'act1':'active','profile':profile,'obj':'none'})
 
 
-
+@login_required(login_url='/login/')
 def Membership_details(request):
-    return render(request,'customer_dashboard/membershipdetails.html',{'act2':'active'})
+    user = request.user
+    member = Membership.objects.filter(User=user)
+    leng = len(member)
+    return render(request,'customer_dashboard/membershipdetails.html',{'act2':'active','leng':leng,'member':member})
 
+
+@login_required(login_url='/login/')
 def Reviews(request):
     user_n = CustomUser.objects.get(username=request.user)
     rew = Review.objects.filter(User=user_n)
@@ -99,8 +105,29 @@ def Reviews(request):
         return render(request,'customer_dashboard/reviews.html',{'act3':'active','dis1':dis1,'dis2':dis2,'pcss':pcss,'scss':scss,'status':status,'message':message,'review':rew})
     return render(request,'customer_dashboard/reviews.html',{'act3':'active','dis1':dis1,'dis2':dis2,'pcss':pcss,'scss':scss,'obj':'none','review':rew})
 
+
+@login_required(login_url='/login/')
 def Products_sec(request):
     return render(request,'customer_dashboard/product_sec.html',{'act4':'active'})
 
+@login_required(login_url='/login/')
 def yourcart(request):
-    return render(request,'customer_dashboard/yourcart.html',{'act5':'active'})
+    All = cart.objects.filter(user__username=request.user)
+    Len = len(All)
+    total = All.aggregate(Sum('Price'))
+    if request.POST:
+        u = CustomUser.objects.get(username=request.user)
+        Id = request.POST.get('id')
+        Ty = request.POST.get('type') 
+        pr = request.POST.get('price') 
+        mem = Package.objects.get(id=Id)
+        car = cart.objects.create(user=u,product_type=Ty,Member=mem,Price=pr).save()
+        All = cart.objects.filter(user__username=request.user)
+        Len = len(All)
+        total = All.aggregate(Sum('Price'))
+        return render(request,'customer_dashboard/yourcart.html',{'act5':'active','status':'success','message':'Membership Package added to your cart','All':All,'total_product':Len,'amount':total['Price__sum']})
+    return render(request,'customer_dashboard/yourcart.html',{'act5':'active','All':All,'total_product':Len,'amount':total['Price__sum']})
+
+
+
+

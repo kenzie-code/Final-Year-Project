@@ -33,21 +33,32 @@
         <div class="container-xl">
             
             <h1 class="app-page-title">Job Requests</h1>
+            <div class="alert alert-danger d-{{obj}}" style="margin-left:25px; width:75%;" role="alert">
+                {{message}}
+              </div>
             <div class="row">
-
+                {% for i in profile %}
                 <section class="col-lg-6">
+                    
                     <div class="container py-2 h-100">
+                        
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col col-lg-6 mb-4 mb-lg-0 pcard">
                         <div class="card mb-3" style="border-radius: .5rem;">
                             <div class=" g-0">
                             <div class=" gradient-custom text-center text-white"
                                 style="border-top-left-radius: .5rem; border-top-right-radius: .5rem;">
-                                <img src="/static/customer_dashboard/images/profiles/profile-4.png"
+                                <img src="{{i.profile_pic.url}}"
                                 alt="Avatar" class="img-fluid my-3" style="width: 80px;" />
-                                <h5 class="text-white">Sim kim</h5>
+                                <h5 class="text-white">{{i.Name}}</h5>
+                                <form method="post" action="/admin_dashboard/job_request/hire/">
+                                    {% csrf_token %}
+                                    <a class="text-white">
+                                        <input class="d-none" type="text" name="id" value="{{i.id}}" />
+                                        <button class="hirebtn mb-3" type="submit">Hire</button>
+                                    </a>
+                                </form>
                                 
-                                <a href="#" class="text-white"><button class="hirebtn mb-3">Hire</button></a>
                             </div>
                             <div class="">
                                 <div class="card-body p-4">
@@ -56,33 +67,48 @@
                                 <div class="row pt-1">
                                     <div class="col-6 mb-3">
                                     <h6>Email</h6>
-                                    <p class="text-muted">info@example.com</p>
+                                    <p class="text-muted">{{i.Email}}</p>
                                     </div>
                                     <div class="col-6 mb-3">
                                     <h6>Phone</h6>
-                                    <p class="text-muted">123 456 789</p>
+                                    <p class="text-muted">{{i.Phone}}</p>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <h6>Address</h6>
-                                    <p class="text-muted">New York</p>
-                                    </div>
+                                <div class="row mb-1">
+                                    <div class=" col-6">
+                                        <h6>Address</h6>
+                                        <p class="text-muted">{{i.Address}}</p>
+                                        </div>
+                                        <div class="mb-3 col-6">
+                                            <h6>Start Date</h6>
+                                            <p class="text-muted">{{i.start_date}}</p>
+                                        </div>
+                                </div>
                                 <h6>Experiences</h6>
                                 <hr class="mt-0 mb-4">
                                 <div class="row pt-1">
                                     <div class="col-6 mb-3">
                                     <h6>Recent</h6>
-                                    <p class="text-muted">Lorem ipsum</p>
+                                    <p class="text-muted">{{i.Recent}}</p>
                                     </div>
                                     <div class="col-6 mb-3">
                                     <h6>Past Experiences</h6>
-                                    <p class="text-muted">Dolor sit amet</p>
+                                    <p class="text-muted">{{i.Past}}</p>
                                     </div>
                                 </div>
-                                <div class="socio d-flex justify-content-start">
-                                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                                <div class="row">
+                                    <div class="socio d-flex justify-content-start col-6">
+                                        <a href="{{i.facebook}}"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                                        <a href="{{i.twitter}}"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                                        <a href="{{i.instagram}}"><i class="fab fa-instagram fa-lg"></i></a>
+                                    </div>
+                                    <div class="socio d-flex justify-content-start col-6">
+                                        <a href="{{i.cv.url}}">See CV  </a>
+                                        <a href="/admin_dashboard/job_request/?id={{i.User.id}}" style="padding-left: 15px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                          </svg></a>
+                                    </div>
                                 </div>
                                 </div>
                             </div>
@@ -92,186 +118,8 @@
                     </div>
                     </div>
                 </section>
-
-                <section class="col-lg-6">
-                    <div class="container py-2 h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col col-lg-6 mb-4 mb-lg-0 pcard">
-                        <div class="card mb-3" style="border-radius: .5rem;">
-                            <div class="g-0">
-                            <div class="gradient-custom text-center text-white"
-                                style="border-top-left-radius: .5rem; border-top-right-radius: .5rem;">
-                                <img src="/static/customer_dashboard/images/profiles/profile-3.png"
-                                alt="Avatar" class="img-fluid my-3" style="width: 80px;" />
-                                <h5 class="text-white">Marie Horwitz</h5>
-                                
-                                <a href="#" class="text-white"><button class="hirebtn mb-3">Hire</button></a>
-                            </div>
-                            <div class="">
-                                <div class="card-body p-4">
-                                <h6>Information</h6>
-                                <hr class="mt-0 mb-4">
-                                <div class="row pt-1">
-                                    <div class="col-6 mb-3">
-                                    <h6>Email</h6>
-                                    <p class="text-muted">info@example.com</p>
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                    <h6>Phone</h6>
-                                    <p class="text-muted">123 456 789</p>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <h6>Address</h6>
-                                    <p class="text-muted">New York</p>
-                                    </div>
-                                <h6>Experiences</h6>
-                                <hr class="mt-0 mb-4">
-                                <div class="row pt-1">
-                                    <div class="col-6 mb-3">
-                                    <h6>Recent</h6>
-                                    <p class="text-muted">Lorem ipsum</p>
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                    <h6>Past Experiences</h6>
-                                    <p class="text-muted">Dolor sit amet</p>
-                                    </div>
-                                </div>
-                                <div class="socio d-flex justify-content-start">
-                                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </section>
+                {% endfor %}
             </div>
-
-
-            <div class="row">
-
-                <section class="col-lg-6">
-                    <div class="container py-2 h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col col-lg-6 mb-4 mb-lg-0 pcard">
-                        <div class="card mb-3" style="border-radius: .5rem;">
-                            <div class="g-0">
-                            <div class=" gradient-custom text-center text-white"
-                                style="border-top-left-radius: .5rem; border-top-right-radius: .5rem;">
-                                <img src="/static/customer_dashboard/images/profiles/profile-4.png"
-                                alt="Avatar" class="img-fluid my-3" style="width: 80px;" />
-                                <h5 class="text-white">Sim kim</h5>
-                                
-                                <a href="#" class="text-white"><button class="hirebtn mb-3">Hire</button></a>
-                            </div>
-                            <div class="">
-                                <div class="card-body p-4">
-                                <h6>Information</h6>
-                                <hr class="mt-0 mb-4">
-                                <div class="row pt-1">
-                                    <div class="col-6 mb-3">
-                                    <h6>Email</h6>
-                                    <p class="text-muted">info@example.com</p>
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                    <h6>Phone</h6>
-                                    <p class="text-muted">123 456 789</p>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <h6>Address</h6>
-                                    <p class="text-muted">New York</p>
-                                    </div>
-                                <h6>Experiences</h6>
-                                <hr class="mt-0 mb-4">
-                                <div class="row pt-1">
-                                    <div class="col-6 mb-3">
-                                    <h6>Recent</h6>
-                                    <p class="text-muted">Lorem ipsum</p>
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                    <h6>Past Experiences</h6>
-                                    <p class="text-muted">Dolor sit amet</p>
-                                    </div>
-                                </div>
-                                <div class="socio d-flex justify-content-start">
-                                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-
-                <section class="col-lg-6">
-                    <div class="container py-2 h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col col-lg-6 mb-4 mb-lg-0 pcard">
-                        <div class="card mb-3" style="border-radius: .5rem;">
-                            <div class="g-0">
-                            <div class="gradient-custom text-center text-white"
-                                style="border-top-left-radius: .5rem; border-top-right-radius: .5rem;">
-                                <img src="/static/customer_dashboard/images/profiles/profile-3.png"
-                                alt="Avatar" class="img-fluid my-3" style="width: 80px;" />
-                                <h5 class="text-white">Marie Horwitz</h5>
-                                
-                                <a href="#" class="text-white"><button class="hirebtn mb-3">Hire</button></a>
-                            </div>
-                            <div class="">
-                                <div class="card-body p-4">
-                                <h6>Information</h6>
-                                <hr class="mt-0 mb-4">
-                                <div class="row pt-1">
-                                    <div class="col-6 mb-3">
-                                    <h6>Email</h6>
-                                    <p class="text-muted">info@example.com</p>
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                    <h6>Phone</h6>
-                                    <p class="text-muted">123 456 789</p>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <h6>Address</h6>
-                                    <p class="text-muted">New York</p>
-                                    </div>
-                                <h6>Experiences</h6>
-                                <hr class="mt-0 mb-4">
-                                <div class="row pt-1">
-                                    <div class="col-6 mb-3">
-                                    <h6>Recent</h6>
-                                    <p class="text-muted">Lorem ipsum</p>
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                    <h6>Past Experiences</h6>
-                                    <p class="text-muted">Dolor sit amet</p>
-                                    </div>
-                                </div>
-                                <div class="socio d-flex justify-content-start">
-                                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-            </div>
-
 
         </div>
     </div>

@@ -1,98 +1,97 @@
 {% load static %}
 <style>
-  span {
+  span{
     color: white;
   }
-  .checked {
+  .checked{
     color: orange;
   }
 </style>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-/>
-<link rel="stylesheet" href="{% static '/css/review.css' %}" />
-<div class="container1">
-  <div class="board">
-    <h2 class="text-light">Word from our top customers</h2>
-    <p class="text-light">Some of the fullfilled customers reviews</p>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="{% static '/css/review.css' %}" />
+    <div class="container1" style="margin-top: 10%;">
+      <div class="board">
+        <h2 class="text-light">Word from our top customers</h2>
+        <p class="text-light">Some of the fullfilled customers reviews</p>
 
-    <!-- Slider main container -->
-
-    <div class="swiper">
-      <!-- Additional required wrapper -->
-
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        {% for i in rew %}
-        <div class="swiper-slide">
-          <div class="flex">
-            <div class="comments">{{i.content}}</div>
-            <div>
-              {% if i.Rating == "1" %}
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              {% elif i.Rating == "2" %}
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              {% elif i.Rating == "3" %}
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              {% elif i.Rating == "4" %}
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              {% else %}
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              {% endif %}
+        <!-- Slider main container -->
+        
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            {% for i in rew %}
+            <div class="swiper-slide">
+              <div class="flex">
+                <div class="comments">
+                  {{i.content}}
+                </div>
+                <div > 
+                  {% if i.Rating == "1" %}
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                  {% elif i.Rating == "2" %}
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                  {% elif i.Rating == "3" %}
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                  {% elif i.Rating == "4" %}
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                  {% else %}
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                  {% endif %}
+                  
+              </div>
+                <div class="profile">
+                  {%if request.user.profile_image  %}
+                    <img class="profile-image" src="{{i.User.profile_image.url}}" alt="user profile">
+                  {% else %}
+                  <svg>                  
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg> 
+                    {% endif %}
+                  <a href="#">{{i.User.username}}</a>
+                </div>
+              </div>
+            
             </div>
-            <div class="profile">
-              {%if request.user.profile_image %}
-              <img
-                class="profile-image"
-                src="{{i.User.profile_image.url}}"
-                alt="user profile"
-              />
-              {% else %}
-              <svg>
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                <path
-                  fill-rule="evenodd"
-                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-                />
-              </svg>
-              {% endif %}
-              <a href="#">{{i.User.username}}</a>
-            </div>
+            {% endfor %}
+
           </div>
+          
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
-        {% endfor %}
+        
       </div>
-
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
     </div>
-  </div>
-</div>
 
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script src="{% static '/js/review.js' %}"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="{% static '/js/review.js' %}"></script>

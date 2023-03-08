@@ -18,9 +18,8 @@
     height: 80vh;
     width: 200%%;
 }
-
-
 </style>
+
 <main class="mb-5">
     <section class="main py-5">
         <div class="container py-5 text-white">
@@ -72,13 +71,19 @@
           <div class="col-12 mb-5" id="btn">
             {% if request.user.is_authenticated %}
                 {% if request.user.user_type == 'Customer' %}
-                    <a
-                    href="/"
-                    class="btn ps-2 pe-2"
-                    id="btn1"
-                    >
-                    BUY NOW
-                    </a>
+                <form method="post" action="/customer_dashboard/cart/">
+                  {% csrf_token %}
+                  <input type="text" class="d-none" name="id" value="{{i.id}}" />
+                  <input type="text" class="d-none" name="type" value="Membership" />
+                  <input type="text" class="d-none" name="price" value="{{i.Price}}" />
+                  <button
+                  type="submit"
+                  class="btn ps-2 pe-2"
+                  id="btn1"
+                  >
+                  BUY NOW
+                </button>
+                </form>
                 {% elif request.user.user_type == 'Admin' %}
                     <a
                     href="#"
@@ -138,13 +143,19 @@
           <p> Valid for 14 days</p>
           {% if request.user.is_authenticated %}
           {% if request.user.user_type == 'Customer' %}
-              <a
-              href="/"
-              class="btn btn-primary btn-lg btn-block mt-4"
-              id="joinbtn"
+            <form method="post" action="/customer_dashboard/cart/">
+              {% csrf_token %}
+              <input type="text" class="d-none" name="id" value="{{i.id}}" />
+              <input type="text" class="d-none" name="type" value="Membership" />
+              <input type="text" class="d-none" name="price" value="{{i.Price}}" />
+              <button
+              type="submit"
+              class="btn ps-2 pe-2"
+              id="btn1"
               >
               BUY NOW
-              </a>
+            </button>
+            </form>
           {% elif request.user.user_type == 'Admin' %}
               <a
               href="#"
@@ -193,13 +204,19 @@
                 <div class="col-12 mb-5" id="btn">
                     {% if request.user.is_authenticated %}
                 {% if request.user.user_type == 'Customer' %}
-                    <a
-                    href="/"
-                    class="btn ps-2 pe-2"
-                    id="btn1"
-                    >
-                    BUY NOW
-                    </a>
+                    <form method="post" action="/customer_dashboard/cart/">
+                      {% csrf_token %}
+                      <input type="text" class="d-none" name="id" value="{{i.id}}" />
+                      <input type="text" class="d-none" name="type" value="Membership" />
+                      <input type="text" class="d-none" name="price" value="{{i.Price}}" />
+                      <button
+                      type="submit"
+                      class="btn ps-2 pe-2"
+                      id="btn1"
+                      >
+                      BUY NOW
+                    </button>
+                    </form>
                 {% elif request.user.user_type == 'Admin' %}
                     <a
                     href="#"

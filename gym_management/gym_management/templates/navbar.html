@@ -135,41 +135,34 @@
                   <!-- <li><a class="dropdown-item active" href="#"><i class="fas fa-user mx-1"></i> {{request.user}}</a></li> -->
                   <!-- <li><hr class="dropdown-divider"></li> -->
                   <li>
-                    <a class="dropdown-item" href="/customer_dashboard/"
+                    <a class="dropdown-item" href="/personal_training/"
                       >PERSONAL TRAINING</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/admin_dashboard/"
-                      >HOLY BOOTY</a
-                    >
+                    <a class="dropdown-item" href="/holy_booty/">HOLY BOOTY</a>
                   </li>
+
                   <li>
-                    <a class="dropdown-item" href="/admin_dashboard/"
-                      >HOLY BOX</a
-                    >
+                    <a class="dropdown-item" href="/holy_shred/">HOLY BOX</a>
                   </li>
+
                   <li>
-                    <a class="dropdown-item" href="/admin_dashboard/"
-                      >HOLY RIDE</a
-                    >
+                    <a class="dropdown-item" href="/holy_ride/">HOLY RIDE</a>
                   </li>
+
                   <li>
-                    <a class="dropdown-item" href="/admin_dashboard/"
-                      >HOLY SHRED</a
-                    >
+                    <a class="dropdown-item" href="/holy_shred/">HOLY SHRED</a>
                   </li>
                 </ul>
               </div>
-
               <li class="nav-item">
                 <a class="nav-link" href="/contact/">Contact</a>
               </li>
-              <li>
-              
               <li class="nav-item">
-                <a class="nav-link" href="/review/"> Review </a>
+                <a class="nav-link" href="/review/">Review</a>
               </li>
+              <li>
                 {% if request.user.is_authenticated %}
                 <div class="dropdown">
                   <a

@@ -7,6 +7,7 @@ urlpatterns = [
     path('trainer_details/edit/',views.edit_trainer),
     path('trainer_details/add_trainer/',views.add_trainer),
     path('job_request/',views.job_request),
+    path('job_request/hire/',views.hire),
     path('Members_details/',views.Members_details),
     path('Members_details/member/edit/',views.edit_member),
     path('Reviews/',views.Reviews),
