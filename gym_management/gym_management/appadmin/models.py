@@ -36,11 +36,18 @@ class Job_request(models.Model):
 class Category(models.Model):
     Category_Name = models.CharField(max_length=200,unique=True,verbose_name='Category Name')
 
+
 class Product(models.Model):
     Product_id = models.CharField(max_length=100,unique=True,verbose_name='Product Id')
     Product_Name = models.CharField(max_length=100,verbose_name='Product Name')
     Quantity = models.IntegerField(verbose_name='Quantity')
-    Price = models.FloatField(verbose_name='Price')
+    Price = models.FloatField(verbose_name='Price',null=True,blank=True)
+    Droping_Price = models.FloatField(verbose_name='Droping Price')
     Product_Description = models.TextField(verbose_name='Product Description',null=True,blank=True)
     Product_Category = models.ForeignKey(Category,on_delete=models.CASCADE,null=True,blank=True,verbose_name='Product Category')
+    Product_Tag_1 = models.CharField(max_length=50,verbose_name='First Product Tag')
+    Product_Tag_2 = models.CharField(max_length=50,verbose_name='Second Product Tag')
+    Product_Tag_3 = models.CharField(max_length=50,verbose_name='Third Product Tag')
+    Product_Image = models.ImageField(upload_to='media/product/',null=True,blank=True)
+    Avg_Review = models.IntegerField(verbose_name='Average Review',default=0)
     

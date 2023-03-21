@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+#form .views import *
 
 urlpatterns = [
     path('', views.home_dash),

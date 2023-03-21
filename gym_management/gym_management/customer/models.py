@@ -1,5 +1,5 @@
 from django.db import models
-from accounts.models import CustomUser
+from accounts.models import CustomUser,Customer_Details
 from appadmin.models import Package,Product
 # Create your models here.
 class Feedback(models.Model):
@@ -39,3 +39,15 @@ class cart(models.Model):
     Member = models.ForeignKey(Package,on_delete=models.CASCADE,null=True,blank=True)
     Product = models.ForeignKey(Product,on_delete=models.CASCADE,null=True,blank=True)
     Price = models.FloatField(default=0)
+
+
+class Product_Review(models.Model):
+    Product = models.OneToOneField(Product,on_delete=models.CASCADE,related_name='Review')
+    No_of_review = models.IntegerField(verbose_name='No of Review')
+    user = models.ManyToManyField(Customer_Details,null=True,blank=True)
+
+
+class Product_Comment(models.Model):
+    Product = models.OneToOneField(Product,on_delete=models.CASCADE,related_name='Comments')
+    Comment = models.TextField(verbose_name='Comment')
+    user = models.ManyToManyField(Customer_Details,null=True,blank=True)

@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.navbar{
+/* .navbar{
     background: black;
     color: white;
 
@@ -16,14 +16,14 @@
 .navbar-brand:hover{
     color: white;
     
-}
+} */
 
-span{
+/* span{
     color: Blue;
     cursor: pointer;
     font-size: larger;
-}
-.nav-item{
+} */
+/* .nav-item{
     padding-right: 30px;
 }
 .nav-link{
@@ -33,7 +33,7 @@ span{
 }
 .nav-link:hover{
     color: Blue;
-}
+} */
 
 .fitness{
     /* text-align: center; */

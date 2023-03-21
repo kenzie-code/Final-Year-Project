@@ -1,0 +1,155 @@
+{% include 'admin_dashboard/upper.html' %}
+
+<style>
+  .btn1{
+    background: #282828 ;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .btn1:hover{
+    background: #414141 ;
+    color: white;
+  }
+  .inp{
+    border:1px solid #282828;
+    border-radius: 5px;
+    width: 13rem;
+    height: 2.5rem;
+    padding: 5px;
+    margin-top: 5px;
+  }
+  label{
+    margin-top: 1.5rem;
+  }
+  .pro_img{
+    border: 3px solid #282828;
+    border-radius: 20px;
+    width: 13.5rem;
+    padding: 5px 0px 5px 5px;
+  }
+  .pro_img::-webkit-file-upload-button{
+    border-radius: 15px;
+    padding: 7px 15px 7px 15px;
+    background: #282828 ;
+    color: white;
+  }
+  .pro_img::-webkit-file-upload-button:hover{
+    background: #414141 ;
+    color: white;
+  }
+</style>
+
+<div class="app-wrapper">
+	    
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+
+          <div class="position-relative mb-3">
+            <div class="row g-3 justify-content-between">
+                <div class="col-auto">
+                    <h1 class="app-page-title mb-0">Add Products</h1>
+                </div>
+                <!-- <div class="col-auto">
+                    <div class=" page-utilities sbtn">
+                        <a href="/appadmin/Products/add"><button class="btn1">Add Products</button></a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="alert alert-{{status}} d-{{obj}}" style="margin-left:25px; width:75%;" role="alert">
+          {{message}}
+        </div>
+            <section style="background-color: #f5f6fe;" class="mt-4">
+                <div class="container">
+                  <form  method="post">
+                    {% csrf_token %}
+                  <div class="row" >
+                    <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0 " >
+                      <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                        <img src="https://i.pinimg.com/originals/1c/18/78/1c1878a8b006593b5a6a84e3f85df24a.png"
+                          class="w-100 mt-5" />
+                        <a href="#!">
+                          <div class="hover-overlay">
+                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                          </div>
+                        </a>
+                        <input type="file" name="product_image" class="pro_img mt-4">
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6 border-sm-start-none border-start">
+                      <div class="row">
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                          <label>Product Id : <input type="text" name="product_id" id="" class="inp" value="{{prod.Product_id}}" readonly></label>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                          <label>Product Name : <input type="text" name="product_name" id="" class="inp" value="{{prod.Product_Name}}"></label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                          <label>Quantity : <input type="text" name="product_quant" id="" class="inp" value="{{prod.Quantity}}"></label>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                          <label>Product Description : <br> <textarea name="desc" id="" cols="23" rows="1" class="inp">{{prod.Product_Description}}</textarea></label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                          <label>Product Category : <select name="product_cat" id="package" class="inp">
+                            {% for i in cat %}
+                            <option value="{{i.id}}">{{i.Category_Name}}</option>
+                            {% endfor %}
+                        </select></label>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                          <label>Product Tag1 : <input type="text" name="product_tag1" id="" class="inp" value="{{prod.Product_Tag_1}}"></label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                          <label>Product Tag2 : <input type="text" name="product_tag2" id="" class="inp" value="{{prod.Product_Tag_2}}"></label>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                          <label>Product Tag3 : <input type="text" name="product_tag3" id="" class="inp" value="{{prod.Product_Tag_3}}"></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                      <div class=" align-items-center mb-1">
+                        <label>Actual Price : </label>
+                        <input type="text" name="price" id="" class="inp" value="{{prod.Price}}">
+                        <label >Dropping Price :</label>
+                        <input type="text" name="drop_price" id="" class="inp" value="{{prod.Droping_Price}}">
+                      </div>
+                      <div class="d-flex flex-column mt-4">
+                        <button class="btn btn-primary btn-sm btn1" type="submit">Edit Product</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                  <!-- <div class="row justify-content-center mb-3">
+                    <div class="col-md-12 col-xl-10">
+                      <div class="card shadow-0 border rounded-3">
+                        <div class="card-body" style="background-color: white;">
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+              </section>
+        </div>
+        
+    </div>
+</div> 
+
+
+    <!-- Javascript -->          
+    <script src="/static/customer_dashboard/plugins/popper.min.js"></script>
+    <script src="/static/customer_dashboard/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    <!-- Page Specific JS -->
+    <script src="/static/customer_dashboard/js/app.js"></script> 
+
+</body>
+</html> 

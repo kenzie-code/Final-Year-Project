@@ -1,8 +1,17 @@
 {% load static %} {% include 'navbar.html' %}
 
 <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
-
-<div class="container1" style="margin-top: 4%">
+<style>
+  .footer{
+    margin-top: 50%;
+  }
+</style>
+<div class="container1 mt-2">
+  <form method="post">
+    {% csrf_token %}
+    <div class="alert alert-{{status}} d-{{obj}}" style="margin-left:25px; width:75%;" role="alert">
+      {{message}}
+    </div>
   <div class="row">
     <div class="text col-md-7">
       <h4>Get in touch</h4>
@@ -11,6 +20,7 @@
         <input
           type="text"
           class="form-control"
+          name="Name"
           id="formGroupExampleInput"
           placeholder="Enter your name"
         />
@@ -18,7 +28,8 @@
       <div class="mb-3">
         <label for="formGroupExampleInput2" class="form-label">Email</label>
         <input
-          type="text"
+          type="email"
+          name="Email"
           class="form-control"
           id="formGroupExampleInput2"
           placeholder="Enter your email"
@@ -30,6 +41,7 @@
         >
         <input
           type="text"
+          name="Contact"
           class="form-control"
           id="formGroupExampleInput2"
           placeholder="Enter your number"
@@ -41,11 +53,12 @@
         >
         <textarea
           class="form-control"
+          name="Message"
           id="exampleFormControlTextarea1"
           rows="3"
         ></textarea>
       </div>
-      <button class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </div>
     <div class="title col-md-5">
       <h4>Contact us</h4>
@@ -74,6 +87,7 @@
       </div>
     </div>
   </div>
+  </form>
 </div>
 
-{% comment %} {% include 'footer.html' %} {% endcomment %}
+{% include 'footer.html' %}

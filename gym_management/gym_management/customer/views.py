@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import check_password,make_password
 from accounts.models import *
@@ -108,7 +108,11 @@ def Reviews(request):
 
 @login_required(login_url='/login/')
 def Products_sec(request):
-    return render(request,'customer_dashboard/product_sec.html',{'act4':'active'})
+    Prod = Product.objects.all()
+    return render(request,'customer_dashboard/product_sec.html',{'act4':'active','pro':Prod})
+
+
+
 
 @login_required(login_url='/login/')
 def yourcart(request):
@@ -116,16 +120,29 @@ def yourcart(request):
     Len = len(All)
     total = All.aggregate(Sum('Price'))
     if request.POST:
-        u = CustomUser.objects.get(username=request.user)
-        Id = request.POST.get('id')
-        Ty = request.POST.get('type') 
-        pr = request.POST.get('price') 
-        mem = Package.objects.get(id=Id)
-        car = cart.objects.create(user=u,product_type=Ty,Member=mem,Price=pr).save()
+        if request.POST.get('del'):
+            Id = request.POST.get('del')
+            cart_d = cart.objects.get(id=Id).delete()
+            status = 'danger'
+            message = 'Item removed from cart sucessfully'
+        else :
+            u = CustomUser.objects.get(username=request.user)
+            Id = request.POST.get('id')
+            Ty = request.POST.get('type') 
+            pr = request.POST.get('price') 
+            status = 'success'
+            if Ty == "Membership":
+                mem = Package.objects.get(id=Id)
+                car = cart.objects.create(user=u,product_type=Ty,Member=mem,Price=pr).save()
+                message = 'Membership Package added to your cart'
+            else :
+                mem = Product.objects.get(id=Id)
+                car = cart.objects.create(user=u,product_type=Ty,Product=mem,Price=pr).save()
+                message = 'Product added to your cart'
         All = cart.objects.filter(user__username=request.user)
         Len = len(All)
         total = All.aggregate(Sum('Price'))
-        return render(request,'customer_dashboard/yourcart.html',{'act5':'active','status':'success','message':'Membership Package added to your cart','All':All,'total_product':Len,'amount':total['Price__sum']})
+        return render(request,'customer_dashboard/yourcart.html',{'act5':'active','status':status,'message':message,'All':All,'total_product':Len,'amount':total['Price__sum']})
     return render(request,'customer_dashboard/yourcart.html',{'act5':'active','All':All,'total_product':Len,'amount':total['Price__sum']})
 
 

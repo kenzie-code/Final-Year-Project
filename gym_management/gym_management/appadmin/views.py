@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import check_password,make_password
 from accounts.models import *
@@ -113,7 +113,12 @@ def Reviews(request):
 
 @login_required(login_url='/login/')
 def Products_sec(request):
-    return render(request,'admin_dashboard/product_sec.html',{'act4':'active'})
+    pro = Product.objects.all()
+    if request.POST :
+        Id = request.POST.get('Id')
+        data = Product.objects.get(id=Id).delete()
+        return render(request,'admin_dashboard/product_sec.html',{'act4':'active','pro':pro,'message':'Product has been deleted sucessfully'})
+    return render(request,'admin_dashboard/product_sec.html',{'act4':'active','pro':pro,'obj':'none'})
 
 @login_required(login_url='/login/')
 def Package_list(request):
@@ -173,7 +178,71 @@ def add_package(request):
 
 @login_required(login_url='/login/')
 def add_product(request):
-    return render(request,'admin_dashboard/add_product.html',{'act4':'active'})
+    cat = Category.objects.all()
+    if request.POST:
+        try :
+            Product_Name = request.POST.get("product_name")
+            Quantity = request.POST.get("product_quant")
+            Price = request.POST.get("price")
+            Product_id = request.POST.get("product_id")
+            Droping_Price = request.POST.get("drop_price")
+            Product_Description = request.POST.get("desc")
+            Product_Category = request.POST.get("product_cat")
+            Product_Category = Category.objects.get(id=Product_Category)
+            Product_Tag_1 = request.POST.get("product_tag1")
+            Product_Tag_2 = request.POST.get("product_tag2")
+            Product_Tag_3 = request.POST.get("product_tag3")
+            Product_Image = request.FILES.get("product_image")
+            pro = Product.objects.create(Product_id=Product_id,Product_Name=Product_Name,Quantity=Quantity,Price=Price,
+                Droping_Price=Droping_Price,Product_Description=Product_Description,Product_Category=Product_Category,
+                Product_Tag_1=Product_Tag_1,Product_Tag_2=Product_Tag_2,Product_Tag_3=Product_Tag_3,Product_Image=Product_Image).save()
+            message = 'Product Created Sucessfully'
+            status = 'success'
+        except Exception :
+            message = 'Product Not Created'
+            status = 'warning'
+        return render(request,'admin_dashboard/add_product_.html',{'act4':'active','message':message,'status':status})
+    return render(request,'admin_dashboard/add_product_.html',{'act4':'active','obj':'none',"cat":cat})
+
+@login_required(login_url='/login/')
+def Products_edit(request):
+    Id = request.GET.get('id')
+    pro = Product.objects.get(id=Id)
+    cat = Category.objects.all()
+    if request.POST:
+        try :
+            Product_id = request.POST.get("Product_id")
+            Product_Name = request.POST.get("product_name")
+            Quantity = request.POST.get("product_quant")
+            Price = request.POST.get("price")
+            Droping_Price = request.POST.get("drop_price")
+            Product_Description = request.POST.get("desc")
+            Product_Category = request.POST.get("product_cat")
+            Product_Category = Category.objects.get(id=Product_Category)
+            Product_Tag_1 = request.POST.get("product_tag1")
+            Product_Tag_2 = request.POST.get("product_tag2")
+            Product_Tag_3 = request.POST.get("product_tag3")
+            Product_Image = request.FILES.get("product_image")
+            pro.Quantity=Quantity
+            pro.Price=Price
+            pro.Droping_Price=Droping_Price
+            pro.Product_Description=Product_Description
+            pro.Product_Category=Product_Category
+            pro.Product_Tag_1=Product_Tag_1
+            pro.Product_Tag_2=Product_Tag_2
+            pro.Product_Tag_3=Product_Tag_3
+            pro.Product_Image=Product_Image
+            pro.save()
+            message = 'Product Updated Sucessfully'
+            status = 'success'
+        except Exception as err:
+            print(err)
+            message = 'Product Not Updated'
+            status = 'warning'
+        return render(request,'admin_dashboard/edit_product.html',{'act4':'active','message':message,'status':status,"prod":pro,"cat":cat})
+    return render(request,'admin_dashboard/edit_product.html',{'act4':'active','obj':'none',"prod":pro,"cat":cat})
+
+
 
 @login_required(login_url='/login/')
 def payment(request):

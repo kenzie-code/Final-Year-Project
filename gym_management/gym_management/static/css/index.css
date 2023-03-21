@@ -9,16 +9,17 @@
     color: white;
 
 }
-.navbar-brand{
+.navbar-brand h2{
     color: white;
     font-family: 'Dancing Script', cursive;
 }
-.navbar-brand:hover{
+.navbar-brand span:hover{
     color: white;
     
 }
 
-span{
+.navbar-brand span{
+    font-family: 'Dancing Script', cursive;
     color: Blue;
     cursor: pointer;
     font-size: larger;
