@@ -1,14 +1,20 @@
 {% include 'navbar.html' %}
 {% load static %}
+
+<style>
+  .span{
+
+  }
+</style>
     <!-- ###### Main Section starts ############3 -->
-    <main>
+    <main class="one">
       <section class="main py-5">
         <div class="container py-5 text-white">
           <div class="row py-3">
             <div class="col-lg-10">
               <p class="text-primary mt-5 m-0">BEST PLACE FOR </p>
               <h1 class="m-0 mt-3">Reach Your Body </br>
-                 Goals at <span>Sweaty Athletic.</span></h1>
+                 Goals at <span class="text-primary">Sweaty Athletic.</span></h1>
 
                  <a class="btn btn-primary btn-lg btn-block mt-4" id="joinbtn" href="/signup/">
                     JOIN US
@@ -29,7 +35,7 @@
                             </h5>
                             <p class="py-3">{{i.short_description}}</p>
 
-                            <a href="">-READ MORE</a>
+                            <a href="gold_member/">-READ MORE</a>
                         </div>
                     </div>
                 </div>
@@ -106,7 +112,7 @@
                  YOU CAN BUY A SINGLE WORKOUT OR A HANDFUL OF THEM, </br>
                   IT'S UP TO YOU!</p>
 
-              <a class="btn btn-primary btn-lg btn-block mt-4" id="joinbtn" href="/signup/">
+              <a class="btn btn-primary btn-lg btn-block mt-4" id="joinbtn" href="/pricing/">
             LET'S GO
               </a>
             </div>

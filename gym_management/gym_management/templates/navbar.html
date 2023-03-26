@@ -51,12 +51,47 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
 
     {% comment %} Style sheet {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
     <!-- <link rel="stylesheet" href="{% static 'images/img1.jpg' %}" /> -->
   </head>
 
+  <style>
+    .navbar {
+      background: black;
+      color: white;
+    }
+    .navbar-brand h2 {
+      color: white;
+      font-family: "Dancing Script", cursive;
+    }
+    .navbar-brand span:hover {
+      color: white;
+    }
+
+    .navbar-brand span {
+      font-family: "Dancing Script", cursive;
+      color: Blue;
+      cursor: pointer;
+      font-size: larger;
+    }
+    .nav-item {
+      padding-right: 30px;
+    }
+    .nav-link {
+      color: white;
+      text-transform: uppercase;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .nav-link:hover {
+      color: blue;
+    }
+  </style>
   <body>
     <header>
       <!--####### navbar starts ######## -->
@@ -144,7 +179,7 @@
                   </li>
 
                   <li>
-                    <a class="dropdown-item" href="/holy_shred/">HOLY BOX</a>
+                    <a class="dropdown-item" href="/holy_box/">HOLY BOX</a>
                   </li>
 
                   <li>

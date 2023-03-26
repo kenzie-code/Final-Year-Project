@@ -1,1 +1,125 @@
-{% load static %} {% include 'navbar.html' %} {% include 'footer.html' %}
+{% load static %} {% include 'navbar.html' %}
+
+<style>
+  .one {
+    background: url(https://i.pinimg.com/originals/b5/7d/a5/b57da5d57e9618ff5e59abd6befe6239.jpg)
+      no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  .box {
+    font-family: FSHackney-regular, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 48px;
+    font-size: 32px;
+    margin: 0px 0px 16px;
+    {% comment %} text-align: center; {% endcomment %}
+    letter-spacing: 14.86px;
+  }
+  .btwq {
+    line-height: 20px;
+    font-family: FSHackney-regular, sans-serif;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin: 24px 0px;
+    text-transform: uppercase;
+    {% comment %} text-align: center; {% endcomment %}
+    letter-spacing: 6px;
+    font-weight: 400;
+  }
+  .holy1{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+  }
+  #holy_box{
+    font-size: calc(1.3rem + 0.6vw);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: "Poppins", sans-serif;
+  }
+  #sjwu{
+    font-family: "Times New Roman", Times, serif;
+    color: #302930;
+    font-size: medium;
+  }
+  #book_session{
+    font-weight: 500;
+    font-size: 14px;
+
+    text-align: center;
+  }
+  #book_session1{
+    width: 400px;
+  }
+  .hvOHZQ{
+    position: absolute;
+    top: 0px;
+    left: 24px;
+    right: 24px;
+    height: 200px;
+    background: url(//images.ctfassets.net/v8vm4dukgr99/6ZW1GhzKs1qvxAAQR8MF6w/43f2e37…/SaintsandStars-00016.jpg) center center / cover;
+    }
+    .eXCnJy {
+        line-height: 20px;
+        font-family: FSHackney-regular, sans-serif;
+        font-size: 20px;
+        margin: 24px 0px;
+        text-transform: uppercase;
+        text-align: left;
+        letter-spacing: 6px;
+        font-weight: 700;
+        color: rgb(0, 0, 0);
+    }
+    .ktHxSQ {
+        line-height: 24px;
+        font-size: 16px;
+        font-weight: 200;
+        margin: 0px;
+        font-family: FSHackney-regular, sans-serif;
+        letter-spacing: 1px;
+        {% comment %} color: rgb(127, 120, 128); {% endcomment %}
+    }
+</style>
+
+<main class="mb-5">
+  <section class="one py-5">
+    <div class="container py-5 text-white">
+      <div class="row py-3">
+        <div class="col-lg-10">
+          <h1 class="box m-0 mt-5 text-bold">HOLY BOX</h1>
+          <p class="btwq mt-3 text-bold">BOXING BAGS & WEIGHTS</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="holy1 pb-5 mt-5" id="holyx">
+    <div class="container container-start-now">
+      <div class="row">
+        <h3 class="text-center mt-5" id="holy_box">HOLY BOX</h3>
+        <p class="text-center mt-4" id="sjwu">
+          Step into the zone. Our boxing-inspired HIIT workout focuses on speed, balance and agility. This explosive 50-minute boxing session is most </br>
+          of all a battle against yourself. One-on-one with custom aqua bags that absorb every punch,</br>
+           while our tailored music diverts the pain.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-12 mt-5 mb-5" id="book_session">
+      <button
+        type="submit"
+        class="btn btn-outline-primary text-dark ps-4 pe-4"
+        id="book_session1"
+      >
+        <a class="text text-dark text-bold" href="">BOOK A WORKOUT </a>
+      </button>
+    </div>
+  </section>
+
+  
+</main>
+{% include 'footer.html' %}

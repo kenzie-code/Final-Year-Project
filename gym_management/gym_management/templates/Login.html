@@ -1,60 +1,90 @@
 {% include 'navbar.html' %}
-    <div class="vh-100 d-flex justify-content-center align-items-center mt-3 mb-3">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="col-12 col-md-8 col-lg-6">
-            <div class="card bg-white">
-              <div class="card-body p-5">
-                <form class="mb-3 mt-md-4" method="post">
-                  {% csrf_token %}
-                  <h2 class="fw-bold mb-2 text-uppercase">Sweaty Athletic</h2>
-                  <p class="mb-2">Please enter your login and password!</p>
-                  <div class="alert alert-{{status}} d-{{obj}}" role="alert">
-                    {{message}}
-                  </div>
-                  <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="email"
-                      placeholder="username"
-                      name="username"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="password"
-                      placeholder="*******"
-                      name="password"
-                    />
-                  </div>
-                  <p class="small">
-                    <a class="text-primary" href="forget-password.html"
-                      >Forgot password?</a
-                    >
-                  </p>
-                  <div class="d-grid" style="margin-left: 27.5%;">
-                    <button class="btn btn-outline-dark" type="submit">
-                      Login
-                    </button>
-                  </div>
-                </form>
-                <div>
-                  <p class="mb-0 text-center">
-                    Don't have an account?
-                    <a href="/signup/" class="text-primary fw-bold"
-                      >Sign Up</a
-                    >
-                  </p>
-                </div>
+
+<style>
+  .btn {
+    min-width: 0px;
+    letter-spacing: 2px;
+    height: 48px;
+    border-radius: 48px;
+    padding: 20px 24px;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: row;
+    font-family: FSHackney-regular, sans-serif;
+    font-size: 14px;
+    line-height: normal;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(41, 22, 186);
+    background-color: rgb(255, 255, 255);
+    transition: all 0.2s ease-in 0s;
+    text-decoration: none;
+    width: 70%;
+  }
+</style>
+<div class="vh-100 d-flex justify-content-center align-items-center mt-3 mb-3">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="card bg-white">
+          <div class="card-body p-5">
+            <form class="mb-3 mt-md-4" method="post">
+              {% csrf_token %}
+              <h2 class="fw-bold mb-2 text-uppercase text-primary">
+                Sweaty Athletic
+              </h2>
+              <p class="mb-2">Please enter your login and password!</p>
+              <div class="alert alert-{{status}} d-{{obj}}" role="alert">
+                {{message}}
               </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  placeholder="username"
+                  name="username"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="*******"
+                  name="password"
+                />
+              </div>
+              <p class="small">
+                <a class="text-primary" href="forget-password.html"
+                  >Forgot password?</a
+                >
+              </p>
+              <div class="d-grid" style="margin-left: 27.5%">
+                <button class="btn btn-outline-dark" type="submit">
+                  Login
+                </button>
+              </div>
+            </form>
+            <div>
+              <p class="mb-0 text-center">
+                Don't have an account?
+                <a href="/signup/" class="text-primary fw-bold">Sign Up</a>
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    {% include 'footer.html' %}
+  </div>
+</div>
+{% include 'footer.html' %}

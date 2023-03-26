@@ -18,9 +18,40 @@
     height: 80vh;
     width: 200%%;
 }
+.two{
+  overflow-x: hidden;
+  height: 100%;
+}
+.btn{
+min-width: 0px;
+letter-spacing: 2px;
+height: 48px;
+border-radius: 48px;
+padding: 20px 24px;
+position: relative;
+display: flex;
+-webkit-box-align: center;
+align-items: center;
+-webkit-box-pack: center;
+justify-content: center;
+flex-direction: row;
+font-family: FSHackney-regular, sans-serif;
+font-size: 14px;
+line-height: normal;
+text-align: center;
+text-transform: uppercase;
+cursor: pointer;
+outline: none;
+border: 1px solid rgb(255, 255, 255);
+color: rgb(41, 22, 186);
+background-color: rgb(255, 255, 255);
+transition: all 0.2s ease-in 0s;
+text-decoration: none;
+width: 30%;
+}
 </style>
 
-<main class="mb-5">
+<main class="two mb-5">
     <section class="main py-5">
         <div class="container py-5 text-white">
           <div class="row py-3">
@@ -149,6 +180,7 @@
               <input type="text" class="d-none" name="type" value="Membership" />
               <input type="text" class="d-none" name="price" value="{{i.Price}}" />
               <button
+              href="#"
               type="submit"
               class="btn ps-2 pe-2"
               id="btn1"
@@ -269,14 +301,14 @@
         </div>
     </section>
 
-    <div class="personal py-3">
+    <div class="personal py-3 mt-5">
         <div class="container py-3">
           <div class="row py-5">
             <div class="col-lg-8">
               <h3>PERSONAL TRAINING</h3>
               <p>No matter your goal, we'll get you there!</p>
     
-              <a class="btn btn-lg btn-block mt-4" id="joinbtn" href="">
+              <a class="btn btn-lg btn-block mt-3" id="joinbtn" href="/personal_training/">
                 READ MORE
               </a>
             </div>

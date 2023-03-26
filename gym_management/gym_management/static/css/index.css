@@ -3,6 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+.one{
+    overflow-x: hidden;
+    height: 100%;
+}
 
 .navbar{
     background: black;

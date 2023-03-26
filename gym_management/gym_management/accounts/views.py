@@ -60,11 +60,17 @@ def userLogin(request):
             return render(request,'Login.html',{'message':'Something Went Wrong','status':'danger','info':info,'Social':Social})
     return render(request,'Login.html')
         
+# This is a djangi view that logs out the current user and redirects them to the homepage.
+#
 def userLogout(request):
     logout(request)
     return redirect('/')
 
 
+# This is a simple django view that returns an HTTP response with the string 'Admin'.
+# I have created a URL route in my project "gym" 'urls.py' file that maps to this view
+# In this case, when a user visits the URL ''http://example.com/admin/',the 'admin_dashboard' function will be called and will 
+#return an HTTP response with the string 'Admin'.
 def admin_dashboard(request):
     return HttpResponse('Admin')
 

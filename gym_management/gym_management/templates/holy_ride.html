@@ -1,0 +1,110 @@
+{% load static %} {% include 'navbar.html' %}
+
+<style>
+  .mainn1 {
+    background: url(https://www.nuffieldhealth.com/local/83/97/35edf5fd46abb010dbea1c742b2a/gym-cardio-chigwell.jpg)
+      no-repeat;
+    background-size: cover;
+    height: 80vh;
+  }
+  .btGlEj {
+    font-family: FSHackney-regular, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 48px;
+    font-size: 32px;
+    margin: 0px 0px 16px;
+    {% comment %} text-align: center; {% endcomment %}
+    letter-spacing: 14.86px;
+  }
+  .dretwa {
+    line-height: 20px;
+    font-family: FSHackney-regular, sans-serif;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin: 24px 0px;
+    text-transform: uppercase;
+    {% comment %} text-align: center; {% endcomment %}
+    letter-spacing: 6px;
+    font-weight: 400;
+  }
+  .kTDAfO{
+    font-family: FSHackney-regular, sans-serif;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    line-height: 40px;
+    size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+  }
+  .ktHxSQ{
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 200;
+    margin: 0px;
+    font-family: FSHackney-regular, sans-serif;
+    letter-spacing: 1px;
+    {% comment %} color: rgb(127, 120, 128); {% endcomment %}
+  }
+  #book_session{
+    font-weight: 500;
+    font-size: 14px;
+
+    text-align: center;
+  }
+  #book_session1{
+    width: 400px;
+  }
+</style>
+
+<main class="mb-5">
+  <section class="mainn1 py-5">
+    <div class="container py-5 text-white">
+      <div class="row py-3">
+        <div class="col-lg-10">
+          <h1
+            class="Headline__Headline1-sc-rg4g2a-0 btGlEj"
+            style="opacity: 1; transform: translateY(0%) translateZ(0px)"
+          >
+            HOLY RIDE
+          </h1>
+          <h3 class="Heading-sc-1ejq5fa-0 dretwa">BIKES &amp; RHYTHM</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="startnow pb-3 mt-5" id="startnow">
+    <div class="container container-start-now">
+      <div class="row">
+        <h2 class="Headline__Headline2-sc-rg4g2a-1 kTDAfO text-center mt-5">HOLY RIDE</h2>
+        <p class="Text-sc-w62x9v-0 ktHxSQ text-center mt-5">Get ready for the most exhilarating ride of your life: Holy Ride! A badass, rhythm-based workout<br>
+           where you get carried away by the world's best tracks, immersive light shows created by<br>
+            Awakenings festival and epic on-stage performances.</p>
+
+      <div class="col-12 mt-5 mb-5" id="book_session">
+      <button
+        type="submit"
+        class="btn btn-outline-primary text-dark ps-4 pe-4"
+        id="book_session1"
+      >
+        <a class="text text-dark text-bold" href="">BOOK A WORKOUT </a>
+      </button>
+    </div>
+  </section>
+
+  <section class="startnow pb-3 mt-5" id="startnow">
+    <div class="container container-start-now">
+      <div class="row">
+        <h2 class="Headline__Headline2-sc-rg4g2a-1 kTDAfO text-center mt-5">OUR STAR TRAINERS</h2>
+        <p class="Text-sc-w62x9v-0 ktHxSQ text-center mt-5">Get ready for our epic Star Trainers. They will make you ride faster, always.</p>
+    </div>
+  </section>
+
+  {% comment %} {% include '3Dcarousel.html' %} {% endcomment %}
+
+</main>
+
+{% include 'footer.html' %}
