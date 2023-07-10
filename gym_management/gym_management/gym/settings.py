@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'appadmin',
     'customer',
     'website',
+    'gymapp',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +126,8 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Added Manually
 STATICFILES_DIRS = [BASE_DIR /'static/']#os add path seperator
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

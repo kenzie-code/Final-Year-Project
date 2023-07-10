@@ -1,73 +1,80 @@
-{% load static %} 
-
-{% include 'navbar.html' %}
-
-
+{% load static %} {% include 'navbar.html' %}
 
 <script src="https://kit.fontawesome.com/44f557ccce.js"></script>
 
 <link rel="stylesheet" href="{% static '/css/rev.css' %}" />
 
 <div class="rev-section mt-4 mb-4">
-    <h5 class="title">Words from our customers</h5>
-    <p class="note">Count the memories not the calories ~ SWEATY ATHLETIC</p></div>
-
-    <div class="reviews mb-4">
-      {% for i in data %}
-          <div class="review">
-            <div class="head-review">
-              {%if i.User.profile_image  %}
-                <img class="profile-image" width="250px" src="{{i.User.profile_image.url}}" alt="user profile">
-              {% else %}
-                <svg xmlns="http://www.w3.org/2000/svg" width="250px" height="250px" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                </svg>
-              {% endif %}
-            </div>
-            <div class="body-review">
-              <div class="name-review">{{i.User.username}}</div>
-              <div class="place-review">{{i.time}}</div>
-              <div class="rating">
-                {% if i.Rating == "1" %}
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            {% elif i.Rating == "2" %}
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            {% elif i.Rating == "3" %}
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            {% elif i.Rating == "4" %}
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-            {% else %}
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            {% endif %}
-              </div>
-              <div class="desc-review">
-               {{i.content}}
-              </div>
-            </div>
-          </div>
-      {% endfor %}
+  <h5 class="title">Words from our customers</h5>
+  <p class="note">Count the memories not the calories ~ SWEATY ATHLETIC</p>
 </div>
 
-
+<div class="reviews mb-4">
+  {% for i in data %}
+  <div class="review">
+    <div class="head-review">
+      {%if i.User.profile_image %}
+      <img
+        class="profile-image"
+        width="250px"
+        src="{{i.User.profile_image.url}}"
+        alt="user profile"
+      />
+      {% else %}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="250px"
+        height="250px"
+        fill="currentColor"
+        class="bi bi-person"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"
+        />
+      </svg>
+      {% endif %}
+    </div>
+    <div class="body-review">
+      <div class="name-review">{{i.User.username}}</div>
+      <div class="place-review">{{i.time}}</div>
+      <div class="rating">
+        {% if i.Rating == "1" %}
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        {% elif i.Rating == "2" %}
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        {% elif i.Rating == "3" %}
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        {% elif i.Rating == "4" %}
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        {% else %}
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        {% endif %}
+      </div>
+      <div class="desc-review">{{i.content}}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 {% include 'footer.html' %}

@@ -18,6 +18,7 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from website.views import *
+from . import views
 urlpatterns = [
     path('',home),
     path('about_us/', about),
@@ -33,5 +34,8 @@ urlpatterns = [
     path('holy_box/', holy_box),
     path('holy_ride/', holy_ride),
     path('holy_shred/', holy_shred),
+    path('Perso/', views.Perso),
+    
+    
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 urlpatterns = urlpatterns +static(settings.STATIC_URL,document_root=settings.STATICFILES_DIRS)

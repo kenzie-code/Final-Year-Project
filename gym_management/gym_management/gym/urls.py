@@ -18,6 +18,9 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from website.views import *
+admin.site.site_header = 'Sweaty Athletic'          
+admin.site.index_title = 'Sweaty Athletic Admin Portal'          
+admin.site.site_title = 'Welcome to Sweaty Athletic'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('website.urls')),

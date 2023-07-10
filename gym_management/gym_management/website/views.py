@@ -47,6 +47,24 @@ def contact(request):
             return render(request,"contact.html",{'info':info,'Social':Social,'status':'danger','message':'Something Went Wrong'})
     return render(request,"contact.html",{'info':info,'Social':Social,'obj':'none'})
 
+def Perso(request):
+    info = Information.objects.latest('business_address')
+    Social = social_info.objects.all()
+    if request.POST :
+        try :
+            name = request.POST.get('Name')
+            email = request.POST.get('Email')
+            contact = request.POST.get('Contact')
+            message = request.POST.get('Message')
+            cf = Contact_Form.objects.create(Name=name,Email=email,Contact=contact,Message=message).save()
+            return render(request,"contact.html",{'info':info,'Social':Social,'status':'success','message':'Data Saved Successfully'})
+        except Exception as err :
+            print(err)
+            return render(request,"ready.html",{'info':info,'Social':Social,'status':'danger','message':'Something Went Wrong'})
+    return render(request,"ready.html",{'info':info,'Social':Social,'obj':'none'})
+    
+    
+
 
 def review(request):
     data = Review.objects.filter(verified=True)

@@ -1,0 +1,87 @@
+<div class="container1 mt-2">
+  <form method="post">
+    {% csrf_token %}
+    <div
+      class="alert alert-{{status}} d-{{obj}}"
+      style="margin-left: 25px; width: 75%"
+      role="alert"
+    >
+      {{message}}
+    </div>
+    <div class="row">
+      <div class="text col-md-7">
+        <h4>Get in touch</h4>
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="Name"
+            id="formGroupExampleInput"
+            placeholder="Enter your name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Email</label>
+          <input
+            type="email"
+            name="Email"
+            class="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label"
+            >Contact Number</label
+          >
+          <input
+            type="text"
+            name="Contact"
+            class="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Enter your number"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            >Message</label
+          >
+          <textarea
+            class="form-control"
+            name="Message"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      <div class="title col-md-5">
+        <h4>Contact us</h4>
+        <hr />
+        <div class="mt-4">
+          <div class="d-flex">
+            <i class="bi bi-geo-alt-fill"></i>
+            <p>Address: Bouddha-Sankhu Rd, Makalbari Gate. Kathmandu, 44600</p>
+          </div>
+          <hr />
+          <div class="d-flex">
+            <i class="bi bi-telephone-fill"></i>
+            <p>Contact :- 9880928192</p>
+          </div>
+          <hr />
+          <div class="d-flex">
+            <i class="bi bi-envelope-fill"></i>
+            <p>Email:- sweaty_09@gmail.com</p>
+          </div>
+          <hr />
+          <div class="d-flex">
+            <i class="bi bi-browser-chrome"></i>
+            <p>Website: www.sweatyathlete.com</p>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

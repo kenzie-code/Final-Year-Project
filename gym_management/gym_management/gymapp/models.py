@@ -32,12 +32,5 @@ class Contact_Form(models.Model):
     Email = models.EmailField()
     Contact = models.CharField(max_length=10)
     Message = models.TextField(null=True,blank=True)
-    
-class Perso_Form(models.Model):
-    Name = models.CharField(max_length=150,verbose_name='Name')
-    Email = models.EmailField()
-    Contact = models.CharField(max_length=10)
-    Message = models.TextField(null=True,blank=True)
-    
 
     
